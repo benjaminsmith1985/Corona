@@ -9,7 +9,7 @@
 
 // files needed to connect to database
 include_once 'config/database.php';
-include_once 'objects/chart.php';
+include_once 'objects/news.php';
 
 
 // get database connection
@@ -17,24 +17,17 @@ $database = new Database();
 $db = $database->getConnection();
 
 // instantiate user object
-$chart = new Chart($db);
+$news = new News($db);
+
+
 
 if($_SERVER['REQUEST_METHOD'] != 'OPTIONS'){
+ 
+    $news = $news->loadNews();
 
-    if($chart->getSumChartData()){
-        $array = [];
-
-        $array[] = ['Date', 'Bevestigd', 'Sterfgevallen', 'Hersteld'];
-
-        if($chart->getStats()){
-            foreach($chart->getStats() as $stats){
-                $array[] = [$stats['date'], 1 * $stats['confirmed'],1 * $stats['deaths'],1 * $stats['recovered']];
-            }
-        }      
-
+    if($news){
         echo json_encode(array(
-            "sum" => $chart->getSumChartData(),
-            "stats" => $array
+            "data" => $news
         ));
     }
  
