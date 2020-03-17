@@ -3,12 +3,16 @@
     align-items: stretch;
 }
 
+#content{
+    width:100%;
+}
+
 #sidebar { 
     z-index: 100000;
     min-width: 400px;
     max-width: 400px;
     min-height: 100vh;
-
+    overflow: hidden !important;
 }
 
 #sidebar.active {
@@ -36,7 +40,7 @@ a, a:hover, a:focus {
 
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
-    background: rgba(0,0,0,0.8);
+    background: #e0f0fb;
     color: #fff;
     transition: all 0.3s;
   
@@ -44,7 +48,6 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 15px;
-    background: rgba(44,43,43,0.5);
     color:#fff;
     text-transform: uppercase;
     text-align: center;
@@ -81,3 +84,44 @@ ul ul a {
     padding-left: 30px !important;
     background: #6d7fcc;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #e0f0fb;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #b3d3e8;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0a3a52;
+  }
+
+  .sidebar-container{
+    position: fixed; 
+    width: 400px;
+    overflow-y:scroll;
+    height: 100%;
+
+    .item-container{
+        padding: 20px;
+        
+        .item-title{
+            font-weight: 700; 
+            color:#010050;
+            font-size: 18px;
+        }
+
+        .item-text{
+            color:#010050;
+        }
+    }
+  }

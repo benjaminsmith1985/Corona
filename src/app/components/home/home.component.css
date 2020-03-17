@@ -1,0 +1,32 @@
+.home-wrapper {
+  overflow: hidden;
+  height: 100%;
+  padding-top: 130px;
+}
+.home-wrapper .home-left-wrapper {
+  float: left;
+  width: 30%;
+  padding: 0 20px;
+}
+.home-wrapper #chart1 {
+  width: 450px;
+}
+.distict {
+  fill: rgba(255, 255, 255, 0.7);
+  stroke: solid 1px #fff;
+}
+.distictON {
+  fill: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+}
+.distictON:hover {
+  stroke: #ffffff;
+  stroke-width: 1px;
+}
+.svg {
+  display: inline;
+  min-width: inherit;
+  max-width: inherit;
+  min-height: inherit;
+  max-height: inherit;
+}
