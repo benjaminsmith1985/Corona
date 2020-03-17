@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { GoogleCharts } from 'google-charts';
 import { ChartService } from '../../services/chart.service';
 
@@ -9,19 +9,24 @@ import { ChartService } from '../../services/chart.service';
 })
 export class ChartComponent implements OnInit {
   chartData: any;
+  @ViewChild('myname') input; 
 
   constructor(
     private chartService: ChartService
   ) { }
+ 
+  // ngAfterContentInit() {
+  //   console.log(document.getElementById('chart1'));
+  // }
 
   ngOnInit() {
-    GoogleCharts.load(this.drawChart);
+    //console.log(document.getElementById('chart1'));
     this.getChartDatas();
   }
 
   getChartDatas() {
-    var self = this;
-    this.chartService.getDatas()
+    var self = this; 
+    this.chartService.getDatas() 
       .subscribe(data => {
         this.chartData = data;
         var stats = data.stats;

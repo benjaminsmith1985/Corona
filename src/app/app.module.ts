@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MapComponent } from './components/map/map.component';
 import { NewsitemsComponent } from './components/newsitems/newsitems.component';
 import { ChartComponent } from './components/chart/chart.component';
+import { PconferenceComponent } from './components/pconference/pconference.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ChartComponent } from './components/chart/chart.component';
     NavbarComponent,
     MapComponent,
     NewsitemsComponent,
-    ChartComponent
+    ChartComponent,
+    PconferenceComponent
   ],
   imports: [
     BrowserModule,

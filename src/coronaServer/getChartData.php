@@ -21,15 +21,15 @@ $chart = new Chart($db);
 
 if($_SERVER['REQUEST_METHOD'] != 'OPTIONS'){
 
-    if($chart->getSumChartData()){ 
-        $array = [];  
+    if($chart->getSumChartData()){
+        $array = [];
 
         $array[] = ['Date', 'Bevestigd', 'Sterfgevallen', 'Hersteld'];
 
         foreach($chart->getStats() as $stats){
             $array[] = [$stats['date'], 1 * $stats['confirmed'],1 * $stats['deaths'],1 * $stats['recovered']];
         }
- 
+
         echo json_encode(array(
             "sum" => $chart->getSumChartData(),
             "stats" => $array

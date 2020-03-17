@@ -18,7 +18,7 @@ class News{
 
     function loadNews() {
 
-        // insert query
+        // insert query 
         $query = "SELECT *, DATE_FORMAT(date, '%M %d, %Y') as date FROM $this->table_name ORDER BY date DESC";
 
         // prepare the query
