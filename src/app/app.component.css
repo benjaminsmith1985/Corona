@@ -7,13 +7,13 @@
 }
 #sidebar {
   z-index: 100000;
-  min-width: 400px;
-  max-width: 400px;
+  min-width: 350px;
+  max-width: 350px;
   min-height: 100vh;
   overflow: hidden !important;
 }
 #sidebar.active {
-  margin-left: -400px;
+  margin-left: -350px;
 }
 body {
   font-family: 'Poppins', sans-serif;
@@ -91,18 +91,7 @@ ul ul a {
 }
 .sidebar-container {
   position: fixed;
-  width: 400px;
+  width: 350px;
   overflow-y: scroll;
   height: 100%;
-}
-.sidebar-container .item-container {
-  padding: 20px;
-}
-.sidebar-container .item-container .item-title {
-  font-weight: 700;
-  color: #010050;
-  font-size: 18px;
-}
-.sidebar-container .item-container .item-text {
-  color: #010050;
 }

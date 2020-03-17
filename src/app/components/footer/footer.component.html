@@ -1,9 +1,9 @@
-<div class="footer">  
-  <div class="footer-header">
-      <div class="footer-title" onclick="showSideMenu();">
-          Laatste nieuws
-      </div>
-      <!-- <div class="footer-radio">
+<div class="footer">
+    <div class="footer-header">
+        <div class="footer-title" onclick="showSideMenu();">
+            Laatste nieuws
+        </div>
+        <!-- <div class="footer-radio">
         <audio controls="" src="https://corona-news.westream.cloud/coronaNews">
                 Your browser does not support the
                 <code>audio</code> element.
@@ -12,11 +12,15 @@
       <div class="audio-label">
           Live Radio
       </div> -->
-  </div>
-  <div class="footer-main">
-      {{mainText}}
-  </div>
-  <div class="marquee-container">
-    <marquee class="marquee" bgcolor="#000" scrolldelay="50">{{marqueeText}}</marquee>    
-  </div>
-</div>
+    </div>
+    <div *ngIf="headline" class="headline">
+        {{headline.text}}
+    </div>
+    <div class="marquee-container">
+        <marquee class="marquee" bgcolor="#000" scrolldelay="40">
+            <span *ngFor="let marquee of marquees; let last = last">{{marquee.text}}&nbsp;<i *ngIf="!last" class="material-icons">
+                    arrow_right
+                </i>&nbsp;</span> 
+        </marquee>
+    </div>
+</div> 

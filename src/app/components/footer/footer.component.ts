@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MarqueeService } from '../../services/marquee.service';
+import { HeadlineService } from '../../services/headline.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,22 +8,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.less']
 })
 export class FooterComponent implements OnInit {
-  mainText: any;
-  marqueeText: any;
+  headline: any;
+  marquees: any;
 
-  constructor() { }
+  constructor(
+    private marqueeService: MarqueeService,
+    private headlineService: HeadlineService
+  ) { }
 
   ngOnInit() {
-    this.getMainText();
-    this.getMarqueeText();
+    this.getHeadline();
+    this.loadMarquee();
   }
 
-  getMainText() {
-    this.mainText = "Vanaf dinsdag 17 maart scholen gesloten, uitgezonderd groep FO-8, HAVO-5, VWO-6 EN VSBO-4";
+  getHeadline() {
+    this.headlineService.getHeadline()
+      .subscribe(data => { 
+        this.headline = data.data;
+      });
   }
 
-  getMarqueeText(){
-    this.marqueeText = "3de persoon met coronavirus geconstateerd, plek nog niet bekend | Alle KLM Vluchten naar curacao geanulleerd";
+  loadMarquee() {
+    this.marqueeService.getMarquees()
+      .subscribe(data => { 
+        this.marquees = data.data;
+      });
   }
+
+  // getMarqueeText(){
+  //   this.marqueeText = "3de persoon met coronavirus geconstateerd, plek nog niet bekend | Alle KLM Vluchten naar curacao geanulleerd";
+  // } 
 
 }

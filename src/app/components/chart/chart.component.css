@@ -1,0 +1,29 @@
+#chart1 {
+  width: 450px;
+}
+.chart-container {
+  width: 450px;
+}
+.chart-container .chart-items-container {
+  background-color: rgba(44, 185, 238, 0.6);
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+}
+.chart-container .chart-items-container .bg-color1 {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.chart-container .chart-items-container .bg-color2 {
+  background-color: rgba(44, 185, 238, 0.6);
+}
+.chart-container .chart-items-container .bg-color3 {
+  background-color: rgba(44, 185, 238, 0.3);
+}
+.chart-container .chart-items-container .chart-items {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+.chart-container .chart-items-container .chart-items .item-amount {
+  font-size: 30px;
+}
