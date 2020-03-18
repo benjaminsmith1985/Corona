@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MarqueeService } from '../../services/marquee.service';
 import { HeadlineService } from '../../services/headline.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-footer',

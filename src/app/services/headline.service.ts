@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { Globals } from '../globals';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,16 @@ import { Observable, of } from 'rxjs';
 
 export class HeadlineService {
 
-  private link: String = "http://localhost/coronaServer";
+  constructor(
+    private http: HttpClient,
+    private globals: Globals) { }
 
-  constructor(private http: HttpClient) { }
 
-  
-  getHeadline():any {
-    return this.http.get(`${this.link}/getHeadline`);
+  getHeadline(): any {
+    return this.http.get(`${this.globals.serverlink}getHeadline.php`);
+  }
+
+  update(data: any): any {
+    return this.http.post(`${this.globals.serverlink}/updateHeadline.php`, { data });
   }
 } 

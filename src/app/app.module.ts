@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { Globals } from './globals';
+import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +15,9 @@ import { MapComponent } from './components/map/map.component';
 import { NewsitemsComponent } from './components/newsitems/newsitems.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { PconferenceComponent } from './components/pconference/pconference.component';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -21,14 +28,23 @@ import { PconferenceComponent } from './components/pconference/pconference.compo
     MapComponent,
     NewsitemsComponent,
     ChartComponent,
-    PconferenceComponent
+    PconferenceComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    Globals,
+    FormBuilder
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
