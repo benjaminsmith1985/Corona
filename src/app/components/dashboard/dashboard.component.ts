@@ -28,10 +28,13 @@ export class DashboardComponent implements OnInit {
 
     this.insertNewsForm = this.formBuilder.group({
       subject: ['', Validators.required],
-      date: ['', Validators.required],
+      date: [''],
       text: ['', Validators.required]
-    });
+    }); 
   }
+
+
+// ngAfterContentInit()
 
 
   updateHeader(): void {

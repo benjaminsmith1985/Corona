@@ -19,7 +19,7 @@
     <div class="content-main">
       <form [formGroup]="insertNewsForm" (ngSubmit)="insertNews()">
         <div class="form-group">
-          <input class="form-control" ngbDatepicker #e="ngbDatepicker" formControlName="date" id="exampleInputEmail1" placeholder="Date">
+          <input class="form-control" formControlName="date"id="exampleInputEmail1" placeholder="Date (yyyy-mm-dd)">
         </div>
         <div class="form-group">
           <input class="form-control" formControlName="subject" id="exampleInputEmail1" placeholder="Subject">

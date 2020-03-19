@@ -18,9 +18,9 @@
     </div>
     <div class="marquee-container">
         <marquee class="marquee" bgcolor="#000" scrolldelay="40">
-            <span *ngFor="let marquee of marquees; let last = last">{{marquee.text}}&nbsp;<i *ngIf="!last" class="material-icons">
+            <span *ngFor="let marquee of marquees; let last = last">{{marquee.subject}}&nbsp;<i *ngIf="!last" class="material-icons">
                     arrow_right
                 </i>&nbsp;</span> 
         </marquee>
-    </div>
-</div> 
+    </div> 
+</div>    

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { GoogleCharts } from 'google-charts';
 import { ChartService } from '../../services/chart.service';
 
+
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
@@ -9,15 +10,11 @@ import { ChartService } from '../../services/chart.service';
 })
 export class ChartComponent implements OnInit {
   chartData: any;
-  @ViewChild('myname') input; 
+  @ViewChild('myname') input;
 
   constructor(
     private chartService: ChartService
   ) { }
- 
-  // ngAfterContentInit() {
-  //   console.log(document.getElementById('chart1'));
-  // }
 
   ngOnInit() {
     //console.log(document.getElementById('chart1'));
@@ -25,8 +22,8 @@ export class ChartComponent implements OnInit {
   }
 
   getChartDatas() {
-    var self = this; 
-    this.chartService.getDatas() 
+    var self = this;
+    this.chartService.getDatas()
       .subscribe(data => {
         this.chartData = data;
         var stats = data.stats;
@@ -34,13 +31,27 @@ export class ChartComponent implements OnInit {
           self.drawChart(stats);
         });
       });
-  }  
+  }
+ 
+  onResize(){
+     //this.getChartDatas();
+  }
 
-  drawChart(datas) {  
+  drawChart(datas) { 
     if (datas) {
       const data = GoogleCharts.api.visualization.arrayToDataTable(datas);
-      const columnChart = new GoogleCharts.api.visualization.LineChart(document.getElementById('chart1'));
-      columnChart.draw(data);
+
+      var options = {
+        legend: 'none',
+        vAxis: {minValue: 0}
+      };
+ 
+
+      window.setTimeout(function () {
+        const columnChart = new GoogleCharts.api.visualization.AreaChart(document.getElementById('chart1'));
+        columnChart.draw(data, options);
+
+      }, 200);
     }
   }
 
