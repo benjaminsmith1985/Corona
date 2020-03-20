@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HeadlineService } from '../../services/headline.service';
 import { NewsService } from '../../services/news.service';
+import { ChartService } from '../../services/chart.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 
@@ -13,10 +14,12 @@ import { first } from 'rxjs/operators';
 export class DashboardComponent implements OnInit {
   headlineForm: FormGroup;
   insertNewsForm: FormGroup;
+  insertChartForm: FormGroup;
 
   constructor(
     private headlineService: HeadlineService,
     private newsService: NewsService,
+    private chartService: ChartService,
     private formBuilder: FormBuilder,
     private router: Router
   ) { }
@@ -30,11 +33,18 @@ export class DashboardComponent implements OnInit {
       subject: ['', Validators.required],
       date: [''],
       text: ['', Validators.required]
-    }); 
+    });
+
+    this.insertChartForm = this.formBuilder.group({
+      date: [''],
+      confirmed: ['', Validators.required],
+      deaths: ['', Validators.required],
+      recovered: ['', Validators.required]
+    });
   }
 
 
-// ngAfterContentInit()
+  // ngAfterContentInit()
 
 
   updateHeader(): void {
@@ -47,10 +57,7 @@ export class DashboardComponent implements OnInit {
       .subscribe(
         (data: { updated: any; }) => {
           if (data.updated) {
-            this.headlineForm.reset();
-            // this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
-            //   this.router.navigate(['/dashboard']);
-            // });
+            this.headlineForm.reset();      
           }
         },
         (error: any) => {
@@ -69,6 +76,25 @@ export class DashboardComponent implements OnInit {
         (data: { inserted: any; }) => {
           if (data.inserted) {
             this.insertNewsForm.reset();
+          }
+        },
+        (error: any) => {
+
+        });
+  }
+
+  insertChart(): void {
+    console.log('here we go');
+    if (this.insertChartForm.invalid) {
+      return;
+    }
+
+    this.chartService.insert(this.insertChartForm.value)
+      .pipe(first())
+      .subscribe(
+        (data: { inserted: any; }) => {
+          if (data.inserted) {
+            this.insertChartForm.reset();
           }
         },
         (error: any) => {

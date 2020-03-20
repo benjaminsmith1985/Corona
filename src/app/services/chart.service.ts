@@ -20,4 +20,8 @@ export class ChartService {
   getDatas():any {  
     return this.http.get(`${this.globals.serverlink}getChartData.php`);
   } 
+
+  insert(data: any): any { 
+    return this.http.post(`${this.globals.serverlink}/insertChart.php`, { data });
+  }
 }  

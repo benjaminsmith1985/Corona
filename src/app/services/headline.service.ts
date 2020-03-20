@@ -19,6 +19,6 @@ export class HeadlineService {
   }
 
   update(data: any): any {
-    return this.http.post(`${this.globals.serverlink}/updateHeadline.php`, { data });
+    return this.http.post(`${this.globals.serverlink}updateHeadline.php`, { data });
   }
 } 

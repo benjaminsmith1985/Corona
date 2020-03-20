@@ -19,7 +19,7 @@
     <div class="content-main">
       <form [formGroup]="insertNewsForm" (ngSubmit)="insertNews()">
         <div class="form-group">
-          <input class="form-control" formControlName="date"id="exampleInputEmail1" placeholder="Date (yyyy-mm-dd)">
+          <input class="form-control" formControlName="date" id="exampleInputEmail1" placeholder="Date (yyyy-mm-dd)">
         </div>
         <div class="form-group">
           <input class="form-control" formControlName="subject" id="exampleInputEmail1" placeholder="Subject">
@@ -28,6 +28,28 @@
           <input class="form-control" formControlName="text" id="exampleInputEmail1" placeholder="Enter your text here">
         </div>
         <button type="submit" class="btn btn-primary">Insert News</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="content-header">
+      Insert Chart
+    </div>
+    <div class="content-main">
+      <form [formGroup]="insertChartForm" (ngSubmit)="insertChart()">
+        <div class="form-group">
+          <input class="form-control" formControlName="date" id="insertChartDate" placeholder="Date (yyyy-mm-dd)">
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="confirmed" id="insertChartConfirmed" placeholder="Confirmed">
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="deaths" id="insertChartDeaths" placeholder="Deaths">
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="recovered" id="insertChartRecovered" placeholder="Recovered">
+        </div>
+        <button type="submit" class="btn btn-primary">Insert Chart</button>
       </form>
     </div>
   </div>

@@ -1,0 +1,24 @@
+<div *ngIf="newsItem" class="main-content">
+    <div class="container">
+      <div class="content-header">
+        Edit News
+      </div>
+      <div class="content-main">
+        <form [formGroup]="editNewsForm" (ngSubmit)="updateNews(false)"> 
+          <div class="form-group">
+            <input class="form-control"formControlName="date" id="exampleInputEmail1" placeholder="Date (yyyy-mm-dd)">
+          </div> 
+          <div class="form-group">
+            <input class="form-control" formControlName="subject" id="exampleInputEmail1" placeholder="Subject">
+            <!-- <input type="hidden" class="form-control" formControlName="newsId" id="exampleInputEmail1"> -->
+            <input type="hidden" class="form-control" formControlName="deleted" id="exampleInputEmail1">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control textarea" rows="12" formControlName="text" id="exampleInputEmail1" placeholder="Enter your text here"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Update News</button>
+          <button (click)="deleteNews()" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div> 

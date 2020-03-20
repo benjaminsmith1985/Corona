@@ -6,6 +6,6 @@ import { Observable, Subject } from 'rxjs';
 @Injectable()
 export class Globals {    
 
-  serverlink:string = "http://localhost/coronaServer/";
-  // serverlink:string = "coronaServer/";
+ serverlink:string = "http://localhost/coronaServer/";
+ //  serverlink:string = "coronaServer/";
 }

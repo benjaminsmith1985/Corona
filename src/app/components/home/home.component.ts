@@ -18,6 +18,10 @@ export class HomeComponent implements OnInit {
     this.loadMap();
   } 
 
+  set(d) {
+     console.log(d.ID);
+  }  
+
  
   loadMap() {
     this.mapService.getDistrict()

@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(role) {
+  onSubmit(data) {
     this.submitted = true;
 
     // stop here if form is invalid

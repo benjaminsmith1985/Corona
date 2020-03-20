@@ -22,4 +22,12 @@ export class NewsService {
   insert(data: any): any { 
     return this.http.post(`${this.globals.serverlink}/insertNews.php`, { data });
   }
+
+  update(data: any): any { 
+    return this.http.post(`${this.globals.serverlink}/updateNews.php`, { data });
+  }
+
+  getNewsById(newsId): any {
+    return this.http.post(`${this.globals.serverlink}/getNewsById.php`, {newsId});
+  }
 }  

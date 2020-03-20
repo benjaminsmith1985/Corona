@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PconferenceComponent } from './components/pconference/pconference.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EditnewsComponent } from './components/editnews/editnews.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'pressconf', component: PconferenceComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]}
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  { path: 'editnews/:newsId', component: EditnewsComponent, canActivate: [AuthGuard]}
 ];
  
 @NgModule({

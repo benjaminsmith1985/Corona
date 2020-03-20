@@ -8,9 +8,9 @@
                   enable-background="new 14.03 16.979 578.314 167.009" xml:space="preserve">
                   <g id="Layer_1">
                         <ng-template ngFor let-district [ngForOf]="districts">
-                              <path *ngIf="district.Type == 'path'" [ngClass]="{'distict': district.HasPoll == '0', 'distictOn': district.HasPoll == '1'}"
+                              <path *ngIf="district.Type == 'path'" (click)="set(district)" [ngClass]="{'distict': district.HasPoll == '0', 'distictOn': district.HasPoll == '1'}"
                                     [attr.d]="district.Shape" />
-                              <polygon *ngIf="district.Type == 'polygon'" [ngClass]="{'distict': district.HasPoll == '0', 'distictOn': district.HasPoll == '1'}"
+                              <polygon *ngIf="district.Type == 'polygon'" (click)="set(district)" [ngClass]="{'distict': district.HasPoll == '0', 'distictOn': district.HasPoll == '1'}"
                                     [attr.points]="district.Shape" />
                         </ng-template>
                   </g>

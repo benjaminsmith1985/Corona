@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../../services/news.service';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-newsitems',
@@ -10,6 +11,7 @@ export class NewsitemsComponent implements OnInit {
   newsItem: any;
 
   constructor(
+    public authenticationService: AuthenticationService,
     private newsService: NewsService
   ) { }
 

@@ -17,6 +17,7 @@ import { ChartComponent } from './components/chart/chart.component';
 import { PconferenceComponent } from './components/pconference/pconference.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EditnewsComponent } from './components/editnews/editnews.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ChartComponent,
     PconferenceComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    EditnewsComponent
   ],
   imports: [
     BrowserModule,

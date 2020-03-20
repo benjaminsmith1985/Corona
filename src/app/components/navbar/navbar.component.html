@@ -7,7 +7,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto"> 
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <button routerLink="/home" type="button" class="btn btn-primary">Home</button>
         </li>
@@ -21,10 +21,14 @@
           <button routerLink="/pressconf" type="button" class="btn btn-primary">Videos</button>
         </li>
         <li class="nav-item">
-          <button onclick="window.open('https://gobiernu.cw/')" type="button" class="btn btn-primary">Website Overheid</button>
+          <button onclick="window.open('https://gobiernu.cw/')" type="button" class="btn btn-primary">Website
+            Overheid</button>
         </li>
         <li *ngIf="authenticationService && authenticationService.currentUserValue" class="nav-item">
-          <button (click)="logout()" type="button" class="btn btn-primary">Log Out</button>
+          <button routerLink="/dashboard" type="button" class="btn btn-info">Dashboard</button>
+        </li>
+        <li *ngIf="authenticationService && authenticationService.currentUserValue" class="nav-item">
+          <button (click)="logout()" type="button" class="btn btn-info">Log Out</button>
         </li>
       </ul>
       <div class="form-inline my-2 my-lg-0">
