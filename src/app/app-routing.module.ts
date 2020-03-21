@@ -9,6 +9,7 @@ import { InsertnewsComponent } from './components/insertnews/insertnews.componen
 import { UpdateheadlineComponent } from './components/updateheadline/updateheadline.component';
 import { UpdatechartComponent } from './components/updatechart/updatechart.component';
 import { UpdatecaseComponent } from './components/updatecase/updatecase.component';
+import { VideoupdateComponent } from './components/videoupdate/videoupdate.component';
 import { LiveComponent } from './components/live/live.component';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'pressconf', component: PconferenceComponent},
   { path: 'login', component: LoginComponent },
   { path: 'live', component: LiveComponent },
+  { path: 'videoupdate', component: VideoupdateComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'editnews/:newsId', component: EditnewsComponent, canActivate: [AuthGuard]},
   { path: 'insertnews', component: InsertnewsComponent, canActivate: [AuthGuard]},

@@ -1,0 +1,16 @@
+.main {
+  padding: 100px 20px;
+}
+.main .col-sm {
+  padding-bottom: 50px;
+  padding-left: 2%;
+}
+.main .card {
+  width: 377px;
+  border-radius: 0;
+}
+.main .card .card-body {
+  text-align: center;
+  color: #010050;
+  padding: 10px !important;
+}

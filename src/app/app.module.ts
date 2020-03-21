@@ -23,6 +23,7 @@ import { UpdateheadlineComponent } from './components/updateheadline/updateheadl
 import { UpdatechartComponent } from './components/updatechart/updatechart.component';
 import { UpdatecaseComponent } from './components/updatecase/updatecase.component';
 import { LiveComponent } from './components/live/live.component';
+import { VideoupdateComponent } from './components/videoupdate/videoupdate.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { LiveComponent } from './components/live/live.component';
     UpdateheadlineComponent,
     UpdatechartComponent,
     UpdatecaseComponent,
-    LiveComponent
+    LiveComponent,
+    VideoupdateComponent
   ],
   imports: [
     BrowserModule,
