@@ -53,4 +53,29 @@
       </form>
     </div>
   </div>
+  <div class="container">
+    <div class="content-header">
+      Update Cases
+    </div>
+    <div class="content-main">
+      <form [formGroup]="updateCaseForm" (ngSubmit)="updateCase()">
+        <div class="form-group">
+          <input class="form-control" formControlName="date" id="updateCaseDate" placeholder="Date (yyyy-mm-dd)">
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="tested" id="updateCaseTested" placeholder="Tested">
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="negative" id="updateCaseNegative" placeholder="Negative">
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="positive" id="updateCasePositive" placeholder="Positive">
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="unfinished" id="updateCaseFinished" placeholder="Unfinished">
+        </div>
+        <button type="submit" class="btn btn-primary">Update Cases</button>
+      </form>
+    </div>
+  </div>
 </div>

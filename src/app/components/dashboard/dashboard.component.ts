@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HeadlineService } from '../../services/headline.service';
 import { NewsService } from '../../services/news.service';
+import { TestService } from '../../services/test.service';
 import { ChartService } from '../../services/chart.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
@@ -15,11 +16,13 @@ export class DashboardComponent implements OnInit {
   headlineForm: FormGroup;
   insertNewsForm: FormGroup;
   insertChartForm: FormGroup;
+  updateCaseForm: FormGroup;
 
   constructor(
     private headlineService: HeadlineService,
     private newsService: NewsService,
     private chartService: ChartService,
+    private testService: TestService,
     private formBuilder: FormBuilder,
     private router: Router
   ) { }
@@ -40,6 +43,14 @@ export class DashboardComponent implements OnInit {
       confirmed: ['', Validators.required],
       deaths: ['', Validators.required],
       recovered: ['', Validators.required]
+    });
+
+    this.updateCaseForm = this.formBuilder.group({
+      date: [''], 
+      tested: ['', Validators.required],
+      negative: ['', Validators.required],
+      positive: ['', Validators.required],
+      unfinished: ['', Validators.required]
     });
   }
 
@@ -95,6 +106,24 @@ export class DashboardComponent implements OnInit {
         (data: { inserted: any; }) => {
           if (data.inserted) {
             this.insertChartForm.reset();
+          }
+        },
+        (error: any) => {
+
+        });
+  }
+
+  updateCase(): void {
+    if (this.updateCaseForm.invalid) {
+      return;
+    }
+
+    this.testService.update(this.updateCaseForm.value)
+      .pipe(first())
+      .subscribe(
+        (data: { updated: any; }) => {
+          if (data.updated) {
+            this.updateCaseForm.reset();      
           }
         },
         (error: any) => {
