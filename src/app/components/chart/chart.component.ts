@@ -59,6 +59,7 @@ export class ChartComponent implements OnInit {
 
       var options = {
         legend: 'none',
+        chartArea:{left:40,top:20, right:20},
         vAxis: {minValue: 0}
       };
  
@@ -77,6 +78,7 @@ export class ChartComponent implements OnInit {
  
       var options = { 
         legend: 'none',
+        chartArea:{left:40,top:20, right:20},
         vAxis: {minValue: 0}
       };
     

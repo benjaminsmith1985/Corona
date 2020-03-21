@@ -5,8 +5,8 @@
     <div class="item-subject">
         {{news.subject}}
     </div>
-    <div class="item-text">
-        {{news.text}}
+    <div [innerHTML]="news.text" class="item-text">
+        
     </div>
     <button routerLink="/editnews/{{news.newsId}}" *ngIf="authenticationService && authenticationService.currentUserValue"
         type="submit" class="btn btn-info">Edit</button>

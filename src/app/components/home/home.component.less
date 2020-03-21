@@ -5,42 +5,59 @@
     padding-bottom: 200px;
 
     .home-left-wrapper{
-        float: left; 
+        float: right; 
         width: 30%; 
         padding: 0 20px;
         
     }   
 
     .home-right-wrapper{
-        float:right;
+        float:left;
         width: 70%; 
-        padding: 5%;
+        padding: 5% 10px;
     }
 }
-
 
 .svg{
     transition: all 0.3s;
     transform: rotate(13deg);
 }
- 
-@media (max-width:1650px){
-   
-   .home-right-wrapper{
-        padding: 8% !important;
-        padding-right: 0 !important;
-   }
-}
 
-@media (max-width:1525px){
+@media (max-width:1770px){
    
+    .home-left-wrapper{
+        width: 35% !important;         
+    }   
+
     .home-right-wrapper{
-         padding: 14% !important;
-         padding-right: 0 !important;
+        width: 65% !important; 
     }
-}
+ }
 
-@media (max-width:1350px){
+ @media (max-width:1500px){
+   
+    .home-left-wrapper{
+        width: 40% !important;         
+    }   
+
+    .home-right-wrapper{
+        width: 60% !important; 
+    }
+ }
+
+ @media (max-width:1350px){
+   
+    .home-left-wrapper{
+        width: 50% !important;         
+    }   
+
+    .home-right-wrapper{
+        width: 50% !important; 
+    }
+ }
+ 
+
+@media (max-width:1150px){
    
     .home-right-wrapper{
          width: 100% !important;
@@ -59,17 +76,19 @@
 }
 
 .distict{
-    fill: rgba(255,255,255, 0.7);
+    fill: rgba(255,255,255, 0.34);
     stroke: solid 1px #fff;
 }
 
 .distictOn{
-    fill: red;
+    fill: rgba(255,255,255, 0.75);
     cursor: pointer;
 }
 
 .distictOn:hover{
-    stroke: #ffffff;
+    // stroke: rgba(255,255,255, 0.7);
+    fill: rgba(255,255,255, 1);
     stroke-width: 1px;
+ 
 }
 
