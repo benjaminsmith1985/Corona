@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewsService } from '../../services/news.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ConditionalExpr } from '@angular/compiler';
+import { ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { Globals } from '../../globals';
+
 
 @Component({
   selector: 'app-editnews',
@@ -17,7 +18,8 @@ export class EditnewsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private newsService: NewsService
+    private newsService: NewsService,
+    public globals: Globals
   ) { }
 
   ngOnInit() {
@@ -62,7 +64,16 @@ export class EditnewsComponent implements OnInit {
     this.updateNews();
   }
 
-  updateNews(): void {    
+  getNewsItems() {
+    this.newsService.getNews()
+      .subscribe(data => {
+        if (data) {
+          this.globals.newsItem = data.data;
+        }
+      });
+  }
+
+  updateNews(): void {
     if (this.editNewsForm.invalid) {
       return;
     }
@@ -71,7 +82,7 @@ export class EditnewsComponent implements OnInit {
       .pipe(first())
       .subscribe(
         (data: { updated: any; }) => {
-
+          this.getNewsItems();
         },
         (error: any) => {
 

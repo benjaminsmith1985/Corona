@@ -5,6 +5,11 @@ import { PconferenceComponent } from './components/pconference/pconference.compo
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditnewsComponent } from './components/editnews/editnews.component';
+import { InsertnewsComponent } from './components/insertnews/insertnews.component';
+import { UpdateheadlineComponent } from './components/updateheadline/updateheadline.component';
+import { UpdatechartComponent } from './components/updatechart/updatechart.component';
+import { UpdatecaseComponent } from './components/updatecase/updatecase.component';
+import { LiveComponent } from './components/live/live.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -12,8 +17,13 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'pressconf', component: PconferenceComponent},
   { path: 'login', component: LoginComponent },
+  { path: 'live', component: LiveComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
-  { path: 'editnews/:newsId', component: EditnewsComponent, canActivate: [AuthGuard]}
+  { path: 'editnews/:newsId', component: EditnewsComponent, canActivate: [AuthGuard]},
+  { path: 'insertnews', component: InsertnewsComponent, canActivate: [AuthGuard]},
+  { path: 'updateheadline', component: UpdateheadlineComponent, canActivate: [AuthGuard]},
+  { path: 'updatechart', component: UpdatechartComponent, canActivate: [AuthGuard]},
+  { path: 'updatecase', component: UpdatecaseComponent, canActivate: [AuthGuard]}
 ];
  
 @NgModule({

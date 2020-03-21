@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HeadlineService } from '../../services/headline.service';
-import { NewsService } from '../../services/news.service';
+
 import { TestService } from '../../services/test.service';
 import { ChartService } from '../../services/chart.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private headlineService: HeadlineService,
-    private newsService: NewsService,
+  
     private chartService: ChartService,
     private testService: TestService,
     private formBuilder: FormBuilder,
@@ -30,13 +30,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.headlineForm = this.formBuilder.group({
       text: ['', Validators.required]
-    });
-
-    this.insertNewsForm = this.formBuilder.group({
-      subject: ['', Validators.required],
-      date: [''],
-      text: ['', Validators.required]
-    });
+    });   
 
     this.insertChartForm = this.formBuilder.group({
       date: [''],
@@ -53,10 +47,6 @@ export class DashboardComponent implements OnInit {
       unfinished: ['', Validators.required]
     });
   }
-
-
-  // ngAfterContentInit()
-
 
   updateHeader(): void {
     if (this.headlineForm.invalid) {
@@ -76,23 +66,7 @@ export class DashboardComponent implements OnInit {
         });
   }
 
-  insertNews(): void {
-    if (this.insertNewsForm.invalid) {
-      return;
-    }
-
-    this.newsService.insert(this.insertNewsForm.value)
-      .pipe(first())
-      .subscribe(
-        (data: { inserted: any; }) => {
-          if (data.inserted) {
-            this.insertNewsForm.reset();
-          }
-        },
-        (error: any) => {
-
-        });
-  }
+  
 
   insertChart(): void {
     console.log('here we go');

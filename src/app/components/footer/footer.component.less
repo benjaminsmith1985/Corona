@@ -2,7 +2,7 @@
     overflow: hidden; 
     color:#fff;
     z-index: 2000; 
-    bottom: 0vh; 
+    bottom: 0; 
     left: 0; 
     width: 100%;
     position: fixed;
@@ -11,16 +11,16 @@
 
     .footer-header{
         overflow:hidden; 
-        height: 50px;
+        height: 45px;
 
         .footer-title{
             float: left; 
             padding: 0 10px;
             font-weight: 600; 
-            width: 175px;  
+            width: 165px;  
             color:#fff; 
-            height: 50px;
-            line-height: 50px;
+            height: 45px;
+            line-height: 45px;
             text-transform: uppercase; 
             font-size: 16px; 
             background-color: #c60001;
@@ -52,16 +52,22 @@
         color:#000;
     }
 
-    .marquee-container{
-        background-color: #000;
+    .marqueecontainer{        
+        padding: 0 !important;
+        height: 49px;
 
         .marquee{
-            height: 46px;
+            margin: 0 !important;
+          
+            padding: 8px;
             font-size: 22px;           
-            font-weight: 600;
-            line-height: 46px;
+            font-weight: 600;           
             text-transform: uppercase;
             color: #FFFFFF;
+
+            .material-icons{
+                font-size: 20px;
+            }
         }
     }  
 }
@@ -70,9 +76,37 @@
     padding-left: 0;
 }
 
+@media (max-width:1650px){
+    .footer{
+        padding-left: 275px;
+    }
+ }
+
+ @media (max-width:1400px){
+    .marqueecontainer{   
+        height: 40px !important; 
+        .marquee{
+            font-weight: 400 !important;
+            font-size: 16px !important; 
+
+            .material-icons{
+                font-size: 14px !important;
+            }
+        }
+    }
+ }
+
 @media (max-width:1150px){
-    .headline{
-        
+    .headline{        
         font-size: 16px !important;
+    }
+
+    .marquee{
+        
+        font-size: 16px; 
+
+        .material-icons{
+            font-size: 20px;
+        }
     }
  }

@@ -13,10 +13,10 @@
           Live Radio
       </div> -->
     </div>
-    <div *ngIf="headline" class="headline">
-        {{headline.text}}
+    <div *ngIf="globals.headline" class="headline">
+        {{globals.headline.text}}
     </div>
-    <div class="marquee-container">
+    <div class="marqueecontainer">
         <marquee class="marquee" bgcolor="#000" scrolldelay="40">
             <span *ngFor="let marquee of marquees; let last = last">{{marquee.subject}}&nbsp;<i *ngIf="!last" class="material-icons">
                     arrow_right

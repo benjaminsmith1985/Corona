@@ -1,0 +1,15 @@
+<div class="main-content">
+  <div class="container">
+    <div class="content-header">
+      Update Headline News
+    </div>
+    <div class="content-main">
+      <form [formGroup]="headlineForm" (ngSubmit)="updateHeader()">
+        <div class="form-group">
+          <input class="form-control" formControlName="text" id="exampleInputEmail1" placeholder="Enter your text here">
+        </div>
+        <button type="submit" class="btn btn-primary">Update Headline</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -18,6 +18,11 @@ import { PconferenceComponent } from './components/pconference/pconference.compo
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditnewsComponent } from './components/editnews/editnews.component';
+import { InsertnewsComponent } from './components/insertnews/insertnews.component';
+import { UpdateheadlineComponent } from './components/updateheadline/updateheadline.component';
+import { UpdatechartComponent } from './components/updatechart/updatechart.component';
+import { UpdatecaseComponent } from './components/updatecase/updatecase.component';
+import { LiveComponent } from './components/live/live.component';
 
 
 @NgModule({
@@ -32,7 +37,12 @@ import { EditnewsComponent } from './components/editnews/editnews.component';
     PconferenceComponent,
     LoginComponent,
     DashboardComponent,
-    EditnewsComponent
+    EditnewsComponent,
+    InsertnewsComponent,
+    UpdateheadlineComponent,
+    UpdatechartComponent,
+    UpdatecaseComponent,
+    LiveComponent
   ],
   imports: [
     BrowserModule,

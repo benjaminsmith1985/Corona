@@ -25,11 +25,24 @@
             Overheid</button>
         </li>
         <li *ngIf="authenticationService && authenticationService.currentUserValue" class="nav-item">
-          <button routerLink="/dashboard" type="button" class="btn btn-info">Dashboard</button>
+          <div class="dropdown">
+            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Dashboard
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a routerLink="/updateheadline" class="dropdown-item">Update Headline News</a>
+              <a routerLink="/insertnews" class="dropdown-item">Insert News Item</a>
+              <a routerLink="/updatechart" class="dropdown-item">Update Chart</a>
+              <a routerLink="/updatecase" class="dropdown-item">Update Case Information</a>
+              <div class="dropdown-divider"></div>
+              <a (click)="logout()" class="dropdown-item">Log Out</a>
+            </div>
+          </div>
         </li>
-        <li *ngIf="authenticationService && authenticationService.currentUserValue" class="nav-item">
-          <button (click)="logout()" type="button" class="btn btn-info">Log Out</button>
-        </li>
+        <!-- <li class="nav-item">
+          <button routerLink="/live" type="button" class="btn btn-danger">Live</button>
+        </li> -->
       </ul>
       <div class="form-inline my-2 my-lg-0">
         <!-- <audio controls="" src="https://corona-news.westream.cloud/coronaNews">

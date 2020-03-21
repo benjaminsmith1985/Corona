@@ -6,21 +6,23 @@
   left: 0;
   width: 100%;
   position: fixed;
+  padding-left: 350px;
+  transition: all 0.3s;
 }
 .footer .footer-header {
   overflow: hidden;
-  height: 50px;
+  height: 45px;
 }
 .footer .footer-header .footer-title {
   float: left;
   padding: 0 10px;
   font-weight: 600;
-  width: 175px;
+  width: 165px;
   color: #fff;
-  height: 50px;
-  line-height: 50px;
+  height: 45px;
+  line-height: 45px;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 16px;
   background-color: #c60001;
 }
 .footer .footer-header .footer-radio {
@@ -40,17 +42,53 @@
   background-color: #fff;
   text-transform: uppercase;
   font-family: 'Oswald', sans-serif;
-  padding: 20px 10px;
-  font-size: 2.1vw;
+  padding: 17px 10px;
+  font-size: 1.8vw;
   color: #000;
 }
-.footer .marquee-container {
-  background-color: #000;
+.footer .marqueecontainer {
+  padding: 0 !important;
+  height: 49px;
 }
-.footer .marquee-container .marquee {
-  height: 40px;
-  font-size: 1.5vw;
+.footer .marqueecontainer .marquee {
+  margin: 0 !important;
+  padding: 8px;
+  font-size: 22px;
   font-weight: 600;
   text-transform: uppercase;
   color: #FFFFFF;
+}
+.footer .marqueecontainer .marquee .material-icons {
+  font-size: 20px;
+}
+.footer-modeclosed {
+  padding-left: 0;
+}
+@media (max-width: 1650px) {
+  .footer {
+    padding-left: 275px;
+  }
+}
+@media (max-width: 1400px) {
+  .marqueecontainer {
+    height: 40px !important;
+  }
+  .marqueecontainer .marquee {
+    font-weight: 400 !important;
+    font-size: 16px !important;
+  }
+  .marqueecontainer .marquee .material-icons {
+    font-size: 14px !important;
+  }
+}
+@media (max-width: 1150px) {
+  .headline {
+    font-size: 16px !important;
+  }
+  .marquee {
+    font-size: 16px;
+  }
+  .marquee .material-icons {
+    font-size: 20px;
+  }
 }

@@ -21,16 +21,16 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/dashboard']);
-    }
+    // if (this.authenticationService.currentUserValue) {
+    //   this.router.navigate(['/dashboard']);
+    // }
 
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
-
+v
   onSubmit(data) {
     this.submitted = true;
 
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/']);
           this.loginForm.reset();
         },
         error => {
