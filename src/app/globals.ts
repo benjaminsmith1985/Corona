@@ -7,5 +7,5 @@ import { Observable, Subject } from 'rxjs';
 export class Globals {    
 
  serverlink:string = "http://localhost/coronaServer/";
- //  serverlink:string = "coronaServer/";
+ // serverlink:string = "coronaServer/";
 }

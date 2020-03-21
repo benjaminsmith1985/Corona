@@ -7,7 +7,7 @@ import { Globals } from '../globals';
   providedIn: 'root'
 })
   
-export class ChartService {
+export class TestService {
 
   private link: String = "coronaServer/"
 
@@ -16,12 +16,12 @@ export class ChartService {
     private globals: Globals
     ) { }
 
-  
+   
   getDatas():any {  
-    return this.http.get(`${this.globals.serverlink}getChartData.php`);
+    return this.http.get(`${this.globals.serverlink}getTests.php`);
   } 
 
-  insert(data: any): any { 
-    return this.http.post(`${this.globals.serverlink}insertChart.php`, { data });
+  update(data: any): any { 
+    return this.http.post(`${this.globals.serverlink}updateTests.php`, { data });
   }
 }  
