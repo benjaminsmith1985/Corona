@@ -1,3 +1,10 @@
+.nav-wrap {
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), transparent);
+  width: 100%;
+}
 .bg-light {
   background-color: transparent !important;
 }
