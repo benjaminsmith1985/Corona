@@ -6,20 +6,19 @@ import { Globals } from '../globals';
 @Injectable({
   providedIn: 'root'
 })
-  
-export class ChartService {
+
+export class DrugstoreService {
 
   constructor(
     private http: HttpClient,
     private globals: Globals
-    ) { }
+  ) { }
 
-  
-  getDatas():any {  
-    return this.http.get(`${this.globals.serverlink}getChartData.php`);
-  } 
+  getAll(): any {
+    return this.http.post(`${this.globals.serverlink}getDrugStores.php`,{});
+  }
 
-  insert(data: any): any { 
-    return this.http.post(`${this.globals.serverlink}insertChart.php`, { data });
+  getByDistrictId(districtId: any): any {
+    return this.http.post(`${this.globals.serverlink}getDrugStoresByDistrictId.php`, { districtId });
   }
 }  

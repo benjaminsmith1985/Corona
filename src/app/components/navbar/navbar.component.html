@@ -1,6 +1,6 @@
 <div class="nav-wrap">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Corona Watch<br /><span class="place">Willemstad, Cura&ccedil;ao</span></a>
+    <a class="navbar-brand" href="#">Dolfijn Watch<br /><span class="place">Willemstad, Cura&ccedil;ao</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,12 +22,12 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a routerLink="/pressconf" class="dropdown-item">Persconferentie</a>
-              <a routerLink="/videoupdate" class="dropdown-item">Video Update</a>
+              <a routerLink="/videoupdate" class="dropdown-item">Dolfijn Update</a>
             </div>
           </div>
         </li>
         <li class="nav-item">
-          <button type="button" id="sidebarCollapse" class="btn btn-primary">Apotheek</button>
+          <button type="button" (click)="openDrugstores(drugstoresModal)" class="btn btn-primary">Apotheken</button>
         </li>
         <li class="nav-item">
           <button onclick="window.open('https://gobiernu.cw/')" type="button" class="btn btn-primary">Website
@@ -62,3 +62,17 @@
     </div>
   </nav>
 </div>
+<ng-template #drugstoresModal let-modal>
+  <div class="my-modal-content">
+    <div class="zoneActivitiesTitle">
+      Apotheken
+    </div>
+    <div class="zoneActivitiesWrapper">
+      <div class="zoneActivitiesContent" *ngFor="let drugstore of drugStores; let last = last">
+        <span>{{drugstore.name}}</span><br />
+        <span class="item-txt">{{drugstore.address}}</span><br />
+        <span class="item-txt">{{drugstore.telephone}}</span>
+      </div>
+    </div>
+  </div>
+</ng-template>

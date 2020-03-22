@@ -3,20 +3,35 @@
             <app-chart></app-chart>
       </div>
       <div class="home-right-wrapper">
-            <svg version="1.1" class="svg" id="svgMap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                  x="0px" y="0px" viewBox="14.03 16.979 578.314 167.009" enable-background="new 14.03 16.979 578.314 167.009"
-                  xml:space="preserve">
+            <svg version="1.1" class="svg" id="svgMap" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="14.03 16.979 578.314 167.009"
+                  enable-background="new 14.03 16.979 578.314 167.009" xml:space="preserve">
                   <g id="Layer_1">
                         <ng-template ngFor let-district [ngForOf]="districts">
-                              <path *ngIf="district.Type == 'path'" (click)="open(content)" [ngClass]="{'distict': district.HasPoll == '0', 'distictOn': district.HasPoll == '1'}"
+                              <path *ngIf="district.Type == 'path'" (click)="getDistrictInfo(district,districtModal)"
+                                    [ngClass]="{'distict': district.HasPoll == '0', 'distictOn': district.HasPoll == '1'}"
                                     [attr.d]="district.Shape" />
-                              <polygon *ngIf="district.Type == 'polygon'" (click)="open(content)" [ngClass]="{'distict': district.HasPoll == '0', 'distictOn': district.HasPoll == '1'}"
+                              <polygon *ngIf="district.Type == 'polygon'"
+                                    (click)="getDistrictInfo(district,districtModal)"
+                                    [ngClass]="{'distict': district.HasPoll == '0', 'distictOn': district.HasPoll == '1'}"
                                     [attr.points]="district.Shape" />
                         </ng-template>
                   </g>
             </svg>
       </div>
 </div>
-<ng-template style="background-color: green" #content let-modal>
- <div>wjkwjkj</div>
+<ng-template #districtModal let-modal>
+      <div class="my-modal-content">
+            <div class="modal-head" *ngIf="currentDistrict">Zone - {{currentDistrict.Name}}</div>
+            <div class="zoneActivitiesTitle">
+                  Apotheken
+            </div>
+            <div class="zoneActivitiesWrapper">
+                  <div class="zoneActivitiesContent" *ngFor="let drugstore of drugStores; let last = last">
+                        <span>{{drugstore.name}}</span><br />
+                        <span class="item-txt">{{drugstore.address}}</span><br />
+                        <span class="item-txt">{{drugstore.telephone}}</span>
+                  </div>
+            </div>
+      </div>
 </ng-template>
