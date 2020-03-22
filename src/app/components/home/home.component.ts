@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   
 
   open(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true, backdropClass: 'light-blue-backdrop' }).result.then((result) => {
+    this.modalService.open(content, {windowClass: 'dark-modal', ariaLabelledBy: 'modal-basic-title', centered: true }).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

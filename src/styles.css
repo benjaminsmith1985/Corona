@@ -11,3 +11,7 @@ html {
 * {
   box-sizing: border-box;
 }
+.modal-content {
+  border: 0;
+  background-color: transparent !important;
+}
