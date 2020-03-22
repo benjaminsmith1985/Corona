@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MapService } from '../../services/map.service';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-home',
@@ -9,14 +11,37 @@ import { MapService } from '../../services/map.service';
 export class HomeComponent implements OnInit {
 
   districts: any;
+  closeResult: string;
 
   constructor(
-    private mapService: MapService
+    private mapService: MapService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit() {   
     this.loadMap();
   } 
+
+  
+  
+
+  open(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', centered: true, backdropClass: 'light-blue-backdrop' }).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+}
+
+private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+        return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+        return 'by clicking on a backdrop';
+    } else {
+        return `with: ${reason}`;
+    }
+}
 
   set(d) {
      console.log(d.ID);

@@ -1,20 +1,32 @@
 <div class="home-wrapper">
       <div class="home-left-wrapper">
-            <app-chart></app-chart>            
+            <app-chart></app-chart>
       </div>
       <div class="home-right-wrapper">
-            <svg version="1.1" class="svg" id="svgMap" xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="14.03 16.979 578.314 167.009"
-                  enable-background="new 14.03 16.979 578.314 167.009" xml:space="preserve">
+            <svg version="1.1" class="svg" id="svgMap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px" y="0px" viewBox="14.03 16.979 578.314 167.009" enable-background="new 14.03 16.979 578.314 167.009"
+                  xml:space="preserve">
                   <g id="Layer_1">
                         <ng-template ngFor let-district [ngForOf]="districts">
-                              <path *ngIf="district.Type == 'path'" (click)="set(district)" [ngClass]="{'distict': district.HasPoll == '0', 'distictOn': district.HasPoll == '1'}"
+                              <path *ngIf="district.Type == 'path'" (click)="open(content)" [ngClass]="{'distict': district.HasPoll == '0', 'distictOn': district.HasPoll == '1'}"
                                     [attr.d]="district.Shape" />
-                              <polygon *ngIf="district.Type == 'polygon'" (click)="set(district)" [ngClass]="{'distict': district.HasPoll == '0', 'distictOn': district.HasPoll == '1'}"
+                              <polygon *ngIf="district.Type == 'polygon'" (click)="open(content)" [ngClass]="{'distict': district.HasPoll == '0', 'distictOn': district.HasPoll == '1'}"
                                     [attr.points]="district.Shape" />
                         </ng-template>
                   </g>
             </svg>
       </div>
-      
 </div>
+<ng-template #content let-modal>
+      <div class="modal-header">
+            <div (click)="modal.dismiss('Cross click')">
+                  <i class="fal fa-times"></i>
+            </div>
+      </div>
+      <div class="modal-body">
+            <div class="modal-title" id="modal-basic-title">SELECT BANK ACCOUNT</div>
+            <div class="items">
+
+            </div>
+      </div>
+</ng-template>
