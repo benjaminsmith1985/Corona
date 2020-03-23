@@ -41,17 +41,23 @@
         theme: "minimal"
       });
 
-      $('#sidebarCollapse').on('click', function () {
-        // open or close navbar
-        $('#sidebar').toggleClass('active');
+      $('.showSideBar').on('click', function () {
+        $('#sidebar').show();
+      });
 
-        if ($('#sidebar').hasClass('active')) {
-          //console.log("remove width"); 
-          $(".footer").addClass("footer-modeclosed");
-        }
-        else {
-          $(".footer").removeClass("footer-modeclosed");
-        }
+      $('.sidebarCollapse').on('click', function () {
+        // open or close navbar
+        $('#sidebar').hide();
+
+        // if ($('#sidebar').hasClass('active')) {
+        //   //console.log("remove width"); 
+        //   $(".footer").addClass("footer-modeclosed");
+        // }
+        // else {
+        //   $(".footer").removeClass("footer-modeclosed");
+        // }
+
+
         // close dropdowns
         $('.collapse.in').toggleClass('in');
         // and also adjust aria-expanded attributes we use for the open/closed arrows

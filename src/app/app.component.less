@@ -9,26 +9,41 @@
 
 #sidebar { 
     z-index: 10;
-     min-width: 350px;
-     max-width: 350px;
+     min-width: 450px;
+     max-width: 450px;
     // min-height: 100vh;
     height: 100%;
     overflow: hidden !important;
     background: #e0f0fb;
     color: #fff;
+    position: absolute;
     transition: all 0.3s;  
+    display: none;
+}
+
+.sidebarCollapse{
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 15px;
+    text-align: right;
+    .material-icons{
+        line-height: 40px;
+        color:#000;
+        cursor: pointer;
+        color:#5282a4;
+    }
 }
 
 .sidebar-container{
     position: fixed; 
-    width: 350px;
+    width: 450px;
     overflow-y:scroll;
     height: 100%;  
     background-color: #fff;  
 }
 
 #sidebar.active {
-    margin-left: -350px;
+    display: none;
 } 
 
 @media (max-width:1650px){
