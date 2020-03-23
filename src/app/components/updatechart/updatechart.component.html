@@ -6,7 +6,8 @@
     <div class="content-main">
       <form [formGroup]="insertChartForm" (ngSubmit)="insertChart()">
         <div class="form-group">
-          <input class="form-control" formControlName="date" id="insertChartDate" placeholder="Date (yyyy-mm-dd)">
+          <input (click)="d.toggle()" autocomplete="off" class="form-control" formControlName="date" ngbDatepicker
+            #d="ngbDatepicker" id="insertChartDate" placeholder="Date (yyyy-mm-dd)">
         </div>
         <div class="form-group">
           <input class="form-control" formControlName="confirmed" id="insertChartConfirmed" placeholder="Confirmed">

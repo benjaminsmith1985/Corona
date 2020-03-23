@@ -1,6 +1,16 @@
 #chart1{
     width: 100%;
 }
+
+.chart-items-container-mobile{
+    display: none;
+}
+
+.chart-container-mobile{
+    background-color: #e0f0fb;
+    padding: 15px;
+    color: #010050;
+}
  
 .chart-container{
     width: 380px;
@@ -44,6 +54,24 @@
     }
 }
 
+@media (max-width:500px){
+    .chart-container{
+        width: 100%;
+    }
+
+   
+
+    .chart-items-container-mobile{
+        display: block !important;
+        padding: 10px;
+        color: #010050;
+    }
+
+    .chart-items-container{
+        display: none !important;
+    }
+}
+
 .row {
-margin:0 !important;
+    margin:0 !important;
 }

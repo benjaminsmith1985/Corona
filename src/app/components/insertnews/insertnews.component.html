@@ -1,4 +1,4 @@
-<div class="main-content">  
+<div class="main-content">
   <div class="container">
     <div class="content-header">
       Insert News Item
@@ -6,13 +6,15 @@
     <div class="content-main">
       <form [formGroup]="insertNewsForm" (ngSubmit)="insertNews()">
         <div class="form-group">
-          <input class="form-control" formControlName="date" id="exampleInputEmail1" placeholder="Date (yyyy-mm-dd)">
+          <input (click)="d.toggle()" autocomplete="off" class="form-control" formControlName="date" ngbDatepicker
+            #d="ngbDatepicker" id="exampleInputEmail1" placeholder="Date (yyyy-mm-dd)">
         </div>
         <div class="form-group">
           <input class="form-control" formControlName="subject" id="exampleInputEmail1" placeholder="Subject">
         </div>
         <div class="form-group">
-          <input class="form-control" formControlName="text" id="exampleInputEmail1" placeholder="Enter your text here">
+          <textarea class="form-control textarea" rows="12" formControlName="text" id="exampleInputEmail1"
+            placeholder="Enter your text here"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Insert News</button>
       </form>

@@ -9,12 +9,23 @@
       <div class="item-amount">{{chartData.sum.deaths}}</div>
     </div>
     <div class="chart-items bg-color3">
-      <div>Hersteld</div> 
+      <div>Hersteld</div>
       <div class="item-amount">{{chartData.sum.recovered}}</div>
-    </div>  
-  </div>             
-  <div  id="chart1"></div>
-</div> 
+    </div>
+  </div>
+  <div class="chart-items-container-mobile">
+    <div>
+      Bevestigd: {{chartData.sum.confirmed}}
+    </div>
+    <div>
+      Sterfgevallen: {{chartData.sum.deaths}}
+    </div>
+    <div>
+      Hersteld: {{chartData.sum.recovered}}
+    </div>
+  </div>
+  <div id="chart1"></div>
+</div>
 <div *ngIf="testData" class="chart-container">
-  <div id="chart2"></div>   
-</div>       
+  <div id="chart2"></div>
+</div>

@@ -1,4 +1,4 @@
-<div class="main-content">  
+<div class="main-content">
   <div class="container">
     <div class="content-header">
       Update Cases
@@ -6,7 +6,8 @@
     <div class="content-main">
       <form [formGroup]="updateCaseForm" (ngSubmit)="updateCase()">
         <div class="form-group">
-          <input class="form-control" formControlName="date" id="updateCaseDate" placeholder="Date (yyyy-mm-dd)">
+          <input (click)="d.toggle()" autocomplete="off" class="form-control" formControlName="date" ngbDatepicker
+            #d="ngbDatepicker" id="updateCaseDate" placeholder="Date (yyyy-mm-dd)">
         </div>
         <div class="form-group">
           <input class="form-control" formControlName="tested" id="updateCaseTested" placeholder="Tested">

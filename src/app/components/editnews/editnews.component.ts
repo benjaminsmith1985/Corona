@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 import { NewsService } from '../../services/news.service';
 import { ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
@@ -14,6 +15,7 @@ import { Globals } from '../../globals';
 export class EditnewsComponent implements OnInit {
   editNewsForm: FormGroup;
   newsItem: any;
+  date: NgbDate | null;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,12 +51,16 @@ export class EditnewsComponent implements OnInit {
       });
   }
 
-  setValue(data): void {
+  setValue(data): void {    
     this.editNewsForm.setValue({
       newsId: data.newsId,
       subject: data.subject,
-      date: data.date,
-      text: data.text,
+      date: {
+        "year": data.year,
+        "month": data.month,
+        "day": data.day
+      }, 
+      text: data.text, 
       deleted: data.deleted
     });
   }

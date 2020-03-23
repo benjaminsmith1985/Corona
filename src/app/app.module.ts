@@ -26,6 +26,7 @@ import { UpdatecaseComponent } from './components/updatecase/updatecase.componen
 import { LiveComponent } from './components/live/live.component';
 import { VideoupdateComponent } from './components/videoupdate/videoupdate.component';
 import { DrugstoreComponent } from './components/drugstore/drugstore.component';
+import { NewsComponent } from './components/news/news.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { DrugstoreComponent } from './components/drugstore/drugstore.component';
     UpdatecaseComponent,
     LiveComponent,
     VideoupdateComponent,
-    DrugstoreComponent
+    DrugstoreComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,

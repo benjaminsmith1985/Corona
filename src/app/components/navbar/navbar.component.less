@@ -6,6 +6,10 @@
      width: 100%;
 }
 
+.news-mob{
+    display: none;
+}
+
 .bg-light{
      background-color: transparent !important; 
 }
@@ -63,4 +67,23 @@ li{
         margin-bottom: 5px;
         font-size: 14px;
     }
+}
+
+@media (max-width:500px){
+    .nav-wrap{
+        background:  rgba(0,0,0,0.5) !important;
+    }
+
+    .news-mob{
+        display: block !important;
+    }
+
+    .news-norm{
+        display: none !important;
+    }
+
+    .btn{
+        margin-bottom: 5px;
+    }  
+
 }

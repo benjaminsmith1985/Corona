@@ -69,6 +69,7 @@ export class ChartComponent implements OnInit {
         areaChart.draw(data, options);
 
       }, 200);
+    
     }
   }
 

@@ -10,6 +10,7 @@ import { UpdateheadlineComponent } from './components/updateheadline/updateheadl
 import { UpdatechartComponent } from './components/updatechart/updatechart.component';
 import { UpdatecaseComponent } from './components/updatecase/updatecase.component';
 import { VideoupdateComponent } from './components/videoupdate/videoupdate.component';
+import { NewsComponent } from './components/news/news.component';
 import { LiveComponent } from './components/live/live.component';
 import { AuthGuard } from './guards/auth.guard';
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'live', component: LiveComponent },
   { path: 'videoupdate', component: VideoupdateComponent },
+  { path: 'news', component: NewsComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'editnews/:newsId', component: EditnewsComponent, canActivate: [AuthGuard]},
   { path: 'insertnews', component: InsertnewsComponent, canActivate: [AuthGuard]},
