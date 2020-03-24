@@ -1,26 +1,32 @@
 <div class="footer">
-    <div class="footer-header">
-        <div class="footer-title" onclick="showSideMenu();">
-            Headline News 
+        <div class="footer-header">
+            <div class="footer-title" (click)="onAudioPlay()">
+                Headline News
+            </div>
+            <!-- <div class="footer-radio">
+            <audio controls="" src="https://corona-news.westream.cloud/coronaNews">
+                    Your browser does not support the
+                    <code>audio</code> element.
+            </audio>
+          </div>
+          <div class="audio-label">
+              Live Radio
+          </div> -->
         </div>
-        <!-- <div class="footer-radio">
-        <audio controls="" src="https://corona-news.westream.cloud/coronaNews">
-                Your browser does not support the
-                <code>audio</code> element.
-        </audio>
-      </div>
-      <div class="audio-label">
-          Live Radio
-      </div> -->
+        <div *ngIf="globals.headline" class="headline">
+            <div class="headline-left">
+                {{globals.headline.text}}
+            </div>
+            <div class="headline-right">
+               <app-map></app-map> 
+            </div>
+        </div>
+        <div class="marqueecontainer">
+            <marquee class="marquee" bgcolor="#0c0c0c" scrolldelay="40">
+                <span *ngFor="let marquee of marquees; let last = last">{{marquee.subject}}&nbsp;<i *ngIf="!last"
+                        class="material-icons">
+                        arrow_right
+                    </i>&nbsp;</span>
+            </marquee>
+        </div>
     </div>
-    <div *ngIf="globals.headline" class="headline">
-        {{globals.headline.text}}
-    </div>
-    <div class="marqueecontainer">
-        <marquee class="marquee" bgcolor="#000" scrolldelay="40">
-            <span *ngFor="let marquee of marquees; let last = last">{{marquee.subject}}&nbsp;<i *ngIf="!last" class="material-icons">
-                    arrow_right
-                </i>&nbsp;</span> 
-        </marquee>
-    </div> 
-</div>    

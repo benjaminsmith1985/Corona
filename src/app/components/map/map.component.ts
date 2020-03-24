@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  ElementRef, ViewChild, OnInit } from '@angular/core';
+import { Globals } from '../../globals';
 
 @Component({
   selector: 'app-map',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./map.component.less']
 })
 export class MapComponent implements OnInit {
+  @ViewChild('audioPlayer') vid: ElementRef;
 
-  constructor() { }
+  constructor( 
+    private globals: Globals
+  ) { }
 
   ngOnInit() {
+    this.globals.player = this.vid;
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { MarqueeService } from '../../services/marquee.service';
 import { HeadlineService } from '../../services/headline.service';
 import { Globals } from '../../globals';
@@ -9,7 +9,7 @@ import { Globals } from '../../globals';
   styleUrls: ['./footer.component.less']
 })
 export class FooterComponent implements OnInit {
- 
+  @ViewChild('audioOption') audioPlayerRef: ElementRef;
   marquees: any;
 
   constructor(
@@ -21,7 +21,12 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
     this.getHeadline();
     this.loadMarquee();
+ 
   } 
+
+  onAudioPlay(){
+    this.audioPlayerRef.nativeElement.play();
+  }
 
   getHeadline() {
     this.headlineService.getHeadline()

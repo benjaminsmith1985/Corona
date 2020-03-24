@@ -18,6 +18,19 @@
           <button type="button" routerLink="/news" class="btn btn-primary">Nieuws</button>
         </li>
         <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Radios
+              </button>
+              <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
+                  <a (click)="onAudioPlay('https://corona-news.westream.cloud/coronaNews')" class="dropdown-item">Dolfijn
+                    Update</a>
+                    <a (click)="onAudioPlay('http://85.214.231.253:8080/;')" class="dropdown-item">DolfijnFM 97.3</a>
+              </div>
+            </div>
+          </li>
+        <li class="nav-item">
           <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { DrugstoreService } from '../../services/drugstore.service';
+import { Globals } from '../../globals';
 
 @Component({
   selector: 'app-navbar',
@@ -12,16 +13,25 @@ import { DrugstoreService } from '../../services/drugstore.service';
 export class NavbarComponent implements OnInit {
   drugStores: any;
   closeResult: any;
+  @ViewChild('audioOption') audioPlayerRef: ElementRef;
 
   constructor(
     public authenticationService: AuthenticationService,
     private router: Router,
     private modalService: NgbModal,
-    private drugstoreService: DrugstoreService
+    private drugstoreService: DrugstoreService,
+    public globals: Globals
   ) { }
 
   ngOnInit() {
 
+  }
+
+  onAudioPlay(src){
+    this.globals.player.nativeElement.pause();
+    this.globals.player.nativeElement.src = src;
+    this.globals.player.nativeElement.load();
+    this.globals.player.nativeElement.play();
   }
 
   open(content: any) {
@@ -31,7 +41,7 @@ export class NavbarComponent implements OnInit {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
-  
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
