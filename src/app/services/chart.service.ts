@@ -13,10 +13,10 @@ export class ChartService {
     private http: HttpClient,
     private globals: Globals
     ) { }
-
+ 
   
   getDatas():any {  
-    return this.http.get(`${this.globals.serverlink}getChartData.php`);
+    return this.http.get(`${this.globals.serverlink}getCoronaUpdate.php`);
   } 
 
   insert(data: any): any { 
