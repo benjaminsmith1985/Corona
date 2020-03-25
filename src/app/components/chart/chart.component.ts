@@ -60,7 +60,8 @@ export class ChartComponent implements OnInit {
       var options = {
         legend: 'none',
         chartArea:{left:40,top:20, right:20},
-        vAxis: {minValue: 0}
+        vAxis: {minValue: 0},
+        colors:['#4dc4f1','#c60001','#19b73b']
       };
  
 

@@ -1,6 +1,11 @@
 <div class="nav-wrap">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Dolfijn Nu<br /><span class="place">Willemstad, Cura&ccedil;ao</span></a>
+    <!-- <div style="text-align:center; height: 100px;">
+      &nbsp;
+    </div> -->
+    <a class="navbar-brand" href="#">
+      <img src="../../../assets/img/logo.png" height="60">
+    </a> 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -21,12 +26,12 @@
             <div class="dropdown">
               <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                Radios
+                Radio
               </button>
               <div class="dropdown-menu"  aria-labelledby="dropdownMenuButton">
                   <a (click)="onAudioPlay('https://corona-news.westream.cloud/coronaNews')" class="dropdown-item">Dolfijn
                     Update</a>
-                    <a (click)="onAudioPlay('http://85.214.231.253:8080/;')" class="dropdown-item">DolfijnFM 97.3</a>
+                    <a (click)="onAudioPlay('http://85.214.231.253:8080/;')" class="dropdown-item">Dolfijn FM 97.3</a>
               </div>
             </div>
           </li>
@@ -34,7 +39,7 @@
           <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              Videos
+              Video
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a routerLink="/pressconf" class="dropdown-item">Persconferentie</a>
