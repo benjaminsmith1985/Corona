@@ -24,10 +24,7 @@ export class FooterComponent implements OnInit {
  
   } 
 
-  onAudioPlay(){
-    this.audioPlayerRef.nativeElement.play();
-  }
-
+  
   getHeadline() {
     this.headlineService.getHeadline()
       .subscribe(data => { 
@@ -35,6 +32,26 @@ export class FooterComponent implements OnInit {
           this.globals.headline = data.data;
         }        
       });
+  }
+
+  pause(){
+    this.globals.player.pause();
+  }
+
+  play(){    
+    this.globals.player.play();
+  }
+
+  stop(){
+    this.globals.player.stop();
+  }
+
+  setAndPlay(medId){
+    if(medId){
+      this.globals.player.playerId = medId;
+    }
+    
+    this.globals.player.setAndPlay(this.globals.player.src);
   }
 
   loadMarquee() {

@@ -1,32 +1,62 @@
 <div class="footer">
-        <div class="footer-header">
-            <div class="footer-title" (click)="onAudioPlay()">
-                Headline News
-            </div>
-            <!-- <div class="footer-radio">
-            <audio controls="" src="https://corona-news.westream.cloud/coronaNews">
-                    Your browser does not support the
-                    <code>audio</code> element.
-            </audio>
-          </div>
-          <div class="audio-label">
-              Live Radio
-          </div> -->
+    <div class="footer-header">
+        <div class="footer-title">
+            Headline News
         </div>
-        <div *ngIf="globals.headline" class="headline">
-            <div class="headline-left">
-                {{globals.headline.text}}
+        <div *ngIf="globals.player" class="footer-radio">
+            <!-- <span *ngIf="globals.player.isBuffering">
+                <img style="fill:rgba(0,0,0,1);" src="../../../assets/img/three-dots.svg" height="8">
+            </span>
+            <span *ngIf="globals.player.isPlaying">
+                Stop
+            </span> -->
+            <div *ngIf="globals.player.playerId" class="controls play-btn">
+                <ng-container
+                    *ngIf="!globals.player.isPlaying && globals.player.isPaused || globals.player.isStopped; else second">
+                    <span *ngIf="globals.player.isPaused" (click)="play()" class="material-icons play">
+                        play_arrow
+                    </span>
+                    <span *ngIf="globals.player.isStopped" (click)="setAndPlay()" class="material-icons play">
+                        play_arrow
+                    </span>
+                </ng-container>
+                <ng-template #second>
+                    <ng-container
+                        *ngIf="!globals.player.isPlaying && !globals.player.isPaused && !globals.player.isStopped;else third">
+                        <img src="../../../assets/img/three-dots.svg" height="8" />
+                    </ng-container>
+                </ng-template>
+                <ng-template #third>
+                    <span (click)="pause()" class="material-icons pause">
+                        pause
+                    </span>
+                </ng-template>
+                <span *ngIf="!globals.player.isStopped && !globals.player.isBuffering" (click)="stop()"
+                    class="material-icons stop">
+                    stop
+                </span>
             </div>
-            <div class="headline-right">
-               <app-map></app-map> 
+            <div *ngIf="!globals.player.playerId">
+                <span (click)="setAndPlay('1')" class="material-icons play">
+                    play_arrow
+                </span>
             </div>
-        </div>
-        <div class="marqueecontainer">
-            <marquee class="marquee" bgcolor="#0c0c0c" scrolldelay="40">
-                <span *ngFor="let marquee of marquees; let last = last">{{marquee.subject}}&nbsp;<i *ngIf="!last"
-                        class="material-icons">
-                        arrow_right
-                    </i>&nbsp;</span>
-            </marquee>
         </div>
     </div>
+    <div *ngIf="globals.headline" class="headline">
+        <div class="headline-left">
+            {{globals.headline.text}}
+        </div>
+        <!-- <div class="headline-right">
+         
+        </div> -->
+    </div>
+    <div class="marqueecontainer">
+        <marquee class="marquee" bgcolor="#0c0c0c" scrolldelay="40">
+            <span *ngFor="let marquee of marquees; let last = last">{{marquee.subject}}&nbsp;<i *ngIf="!last"
+                    class="material-icons">
+                    arrow_right
+                </i>&nbsp;</span>
+        </marquee>
+    </div>
+</div>

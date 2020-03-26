@@ -1,8 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 body,html{
     height: 100%;
-    background: -webkit-gradient(radial, center center, 0, center center, 800, from(#008ed7), to(#013878));
-    background-position: fixed;
+    // background: -webkit-gradient(radial, center center, 0, center center, 800, from(#008ed7), to(#013878));
+    background-color: #fff;
+    background-image: url(https://www.basilachill.com/images/backG.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: 'Lato', sans-serif;
     margin:0; 
     padding: 0;
@@ -12,11 +15,20 @@ body,html{
     box-sizing: border-box;
 }
 
-
 .modal-content{
     border:0;
     border-radius: 0;    
     background-color: #fff;
     color:#010050;
     height: 350px;
+ }
+
+ .main{
+     padding-top: 220px;
+ }
+
+ @media (max-width:770px){
+    .main{
+        padding-top: 100px;
+    }
  }

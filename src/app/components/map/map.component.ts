@@ -1,5 +1,6 @@
 import { Component,  ElementRef, ViewChild, OnInit } from '@angular/core';
 import { Globals } from '../../globals';
+import { MediaplayerService } from '../../services/mediaplayer.service';
 
 @Component({
   selector: 'app-map',
@@ -14,7 +15,8 @@ export class MapComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.globals.player = this.vid;
+    this.globals.player = new MediaplayerService(this.vid.nativeElement);
+  
   }
 
 }

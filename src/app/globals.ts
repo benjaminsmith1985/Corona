@@ -12,6 +12,7 @@ serverlink:string = "http://localhost/coronaServer/";
  newsItem: any; 
  headline: any;
  sidebar: false;
- player: any;
+ player: any = false;
  
+
 } 

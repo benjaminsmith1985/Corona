@@ -3,7 +3,10 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { DrugstoreService } from '../../services/drugstore.service';
+import { MediaplayerService } from '../../services/mediaplayer.service';
 import { Globals } from '../../globals';
+
+
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +16,12 @@ import { Globals } from '../../globals';
 export class NavbarComponent implements OnInit {
   drugStores: any;
   closeResult: any;
+  currentRadio: any;
+  mediaplayer: any;
+
+
   @ViewChild('audioOption') audioPlayerRef: ElementRef;
+
 
   constructor(
     public authenticationService: AuthenticationService,
@@ -21,17 +29,18 @@ export class NavbarComponent implements OnInit {
     private modalService: NgbModal,
     private drugstoreService: DrugstoreService,
     public globals: Globals
-  ) { }
-
-  ngOnInit() {
+  ) {
 
   }
 
-  onAudioPlay(src){
-    this.globals.player.nativeElement.pause();
-    this.globals.player.nativeElement.src = src;
-    this.globals.player.nativeElement.load();
-    this.globals.player.nativeElement.play();
+  ngOnInit() {
+    this.mediaplayer = this.globals.player;
+    //this.player = new Player(this.audioPlayerRef);
+  }
+
+  onAudioPlay(src, id) {
+    this.globals.player.setAndPlay(src);
+    this.globals.player.playerId = id;
   }
 
   open(content: any) {
@@ -50,11 +59,11 @@ export class NavbarComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
-  } 
+  }
 
   openDrugstores(modal: any) {
     this.getDrugStores();
-    this.open(modal);  
+    this.open(modal);
   }
 
   getDrugStores() {

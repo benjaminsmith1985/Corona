@@ -1,10 +1,10 @@
 import { ElementRef } from '@angular/core';
-import { Media } from './media';
+
 
 declare let videojs: any;
 
 export class Player {
-    currentMedia: Media;
+ 
     vidObj: any;
     element: ElementRef;
     isPlaying: boolean;
@@ -16,10 +16,9 @@ export class Player {
     src: string;
     class: string;
 
-    setAndPlay(media: Media): void {
-        this.src = media.url;
-        this.currentMedia = media;
-        this.vidObj.src({ src: media.url, type: media.mimeType });
+    setAndPlay(src): void { 
+        console.log('se');
+        this.vidObj.src({ src: src, type: 'audio/mp3' });
         this.vidObj.play();
     }
 
