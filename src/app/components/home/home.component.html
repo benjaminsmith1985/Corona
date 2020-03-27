@@ -23,14 +23,20 @@
 <ng-template #districtModal let-modal>
       <div class="my-modal-content">
             <div class="modal-head" *ngIf="currentDistrict">Zone - {{currentDistrict.Name}}</div>
-            <div class="zoneActivitiesTitle">
-                  Apotheken
+            <div class="activities-container">
+                  <div *ngIf="drugstores" [ngClass]="{'active': selectedActivity == 'apo'}" (click)="setActivity('apo', currentDistrict.ID)" class="zoneActivitiesTitle">
+                        Apotheken
+                  </div>
+                  <div *ngIf="medicals" [ngClass]="{'active': selectedActivity == 'art'}" (click)="setActivity('art', currentDistrict.ID)" class="zoneActivitiesTitle">
+                        Artsen
+                  </div>
             </div>
+
             <div class="zoneActivitiesWrapper">
-                  <div class="zoneActivitiesContent" *ngFor="let drugstore of drugStores; let last = last">
-                        <span>{{drugstore.name}}</span><br />
-                        <span class="item-txt">{{drugstore.address}}</span><br />
-                        <span class="item-txt">{{drugstore.telephone}}</span>
+                  <div class="zoneActivitiesContent" *ngFor="let activity of activities; let last = last">
+                        <span>{{activity.name}}</span><br />
+                        <span class="item-txt">{{activity.address}}</span><br />
+                        <span class="item-txt">{{activity.telephone}}</span>
                   </div>
             </div>
       </div>

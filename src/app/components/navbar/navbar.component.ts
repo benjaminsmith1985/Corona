@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
+import { ChartService } from '../../services/chart.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { DrugstoreService } from '../../services/drugstore.service';
 import { MediaplayerService } from '../../services/mediaplayer.service';
@@ -18,6 +19,7 @@ export class NavbarComponent implements OnInit {
   closeResult: any;
   currentRadio: any;
   mediaplayer: any;
+  internationalData: any;
 
 
   @ViewChild('audioOption') audioPlayerRef: ElementRef;
@@ -27,6 +29,7 @@ export class NavbarComponent implements OnInit {
     public authenticationService: AuthenticationService,
     private router: Router,
     private modalService: NgbModal,
+    private chartService: ChartService,
     private drugstoreService: DrugstoreService,
     public globals: Globals
   ) {
@@ -35,7 +38,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.mediaplayer = this.globals.player;
-    //this.player = new Player(this.audioPlayerRef);
+    this.getInternationalData();
   }
 
   onAudioPlay(src, id) {
@@ -61,6 +64,11 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  openIntCorData(modal: any) {
+    // this.getDrugStores();
+    this.open(modal);
+  }
+
   openDrugstores(modal: any) {
     this.getDrugStores();
     this.open(modal);
@@ -76,6 +84,13 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
+  }
+
+  getInternationalData() {
+    this.chartService.getInternationalData()
+      .subscribe(data => {
+        this.internationalData = data;
+      });
   }
 
 }

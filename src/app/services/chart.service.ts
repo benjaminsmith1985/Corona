@@ -22,4 +22,8 @@ export class ChartService {
   insert(data: any): any { 
     return this.http.post(`${this.globals.serverlink}insertChart.php`, { data });
   }
+
+  getInternationalData():any{
+    return this.http.get(`${this.globals.serverlink}getCoronaIntStat.php`);
+  }
 }  

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MapService } from '../../services/map.service';
 import { DrugstoreService } from '../../services/drugstore.service';
+import { MedicsService } from '../../services/medics.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -12,12 +13,16 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class HomeComponent implements OnInit {
   currentDistrict: any;
   districts: any;
-  drugStores: any;
+  activities: any;
+  selectedActivity: any = "apo";
   closeResult: string;
+  medicals: any;
+  drugstores: any;
 
   constructor(
     private mapService: MapService,
     private drugstoreService: DrugstoreService,
+    private medicsService: MedicsService,
     private modalService: NgbModal
   ) { }
 
@@ -44,19 +49,56 @@ export class HomeComponent implements OnInit {
   }
 
   getDistrictInfo(district: any, modal: any) {
+    // this.selectedActivity = "apo";
     this.currentDistrict = district;
-    this.getDrugStoreByDistrictId(district.ID);
-    if(district.HasPoll == '1'){
-      this.drugStores = "";
+    this.getMapActivities(district.ID);
+    if (district.HasPoll == '1') {
+      this.activities = "";
       this.open(modal);
-    }    
+    }
   }
 
-  getDrugStoreByDistrictId(districtId :any) {
+  getDrugStoreByDistrictId(districtId: any) {
     this.drugstoreService.getByDistrictId(districtId)
       .subscribe(data => {
-        this.drugStores = data.data;
+        this.activities = data.data;
       });
+  }
+
+  getMedicsByDistrictId(districtId: any) {
+    this.medicsService.getByDistrictId(districtId)
+      .subscribe(data => {
+        this.activities = data.data;
+      });
+  }
+
+  getMapActivities(districtId: any) {
+    this.medicals = false;
+    this.drugstores = false;
+    this.mapService.getActivities(districtId)
+      .subscribe(data => {
+        this.medicals = data.medicals;
+        this.drugstores = data.drugstores;
+        if(this.drugstores){
+          this.selectedActivity = 'apo';
+          this.getDrugStoreByDistrictId(districtId);
+        }else{
+          this.selectedActivity = 'art';
+          this.getMedicsByDistrictId(districtId);
+        }
+      });
+  }
+
+  setActivity(activity, districtId) {
+    this.selectedActivity = activity;
+    switch (activity) {
+      case 'art':
+        this.getMedicsByDistrictId(districtId);
+        break;
+      case 'apo':
+        this.getDrugStoreByDistrictId(districtId);
+        break;
+    }
   }
 
   loadMap() {

@@ -1,4 +1,25 @@
 <div class="nav-wrap">
+  <!-- <div class="nav-banner">
+        <span class="x-larger-banner">
+     
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+          <ins class="adsbygoogle" style="display:inline-block;width:970px;height:90px"
+            data-ad-client="ca-pub-6322207411354516" data-ad-slot="6370836929"></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </span>
+        <span class="larger-banner">
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   
+          <ins class="adsbygoogle" style="display:inline-block;width:729px;height:90px"
+            data-ad-client="ca-pub-6322207411354516" data-ad-slot="3057992467"></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </span>
+      </div> -->
   <div class="nav-banner">
     <span class="x-larger-banner"><a href="http://www.cnn.com" target="_blank"><img
           src="../../../assets/img/banner.png"></a></span>
@@ -19,10 +40,10 @@
           <a class="nav-link" routerLink="/home">Home</a>
         </li>
         <li class="nav-item mob-link" data-toggle="collapse" data-target="#navbarSupportedContent">
-          <a class="nav-link"  routerLink="/home" >Home</a>
+          <a class="nav-link" routerLink="/home">Home</a>
         </li>
         <li class="nav-item" data-toggle="collapse" data-target="#navbarSupportedContent">
-          <a class="nav-link mob-link"  routerLink="/news">Nieuws</a>
+          <a class="nav-link mob-link" routerLink="/news">Nieuws</a>
         </li>
         <li class="nav-item dropdown normal-link">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
@@ -31,8 +52,9 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item">
-              <span (click)="onAudioPlay('https://corona-news.westream.cloud/coronaNews', '1')">Dolfijn Update 
-                <span *ngIf="globals.player.isPlaying && globals.player.playerId == '1'">&nbsp;<img src="../../../assets/img/audio.svg" height="16" /></span> 
+              <span (click)="onAudioPlay('https://corona-news.westream.cloud/coronaNews', '1')">Dolfijn Update
+                <span *ngIf="globals.player.isPlaying && globals.player.playerId == '1'">&nbsp;<img
+                    src="../../../assets/img/audio.svg" height="16" /></span>
               </span>
               &nbsp;
               <!-- <span *ngIf="currentRadio != '1'">Play</span>&nbsp;
@@ -40,7 +62,8 @@
             </a>
             <a class="dropdown-item">
               <span (click)="onAudioPlay('http://85.214.231.253:8080/;', '2')">Dolfijn FM 97.3
-                <span *ngIf="globals.player.isPlaying && globals.player.playerId == '2'">&nbsp;<img src="../../../assets/img/audio.svg" height="16" /></span> 
+                <span *ngIf="globals.player.isPlaying && globals.player.playerId == '2'">&nbsp;<img
+                    src="../../../assets/img/audio.svg" height="16" /></span>
               </span>
               <!-- <span *ngIf="currentRadio != '2'">Play</span> &nbsp;
               <span *ngIf="currentRadio == '2'">Stop</span> -->
@@ -71,24 +94,28 @@
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             Video
-          </a> 
+          </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a routerLink="/pressconf" class="dropdown-item">Persconferentie</a>
             <a routerLink="/videoupdate" class="dropdown-item">Dolfijn Updates</a>
           </div>
         </li>
         <li class="nav-item dropdown mob-link">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true"
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             Video
           </a>
-          <div class="dropdown-menu" data-toggle="collapse" data-target="#navbarSupportedContent"  aria-labelledby="navbarDropdownMenuLink">
+          <div class="dropdown-menu" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-labelledby="navbarDropdownMenuLink">
             <a routerLink="/pressconf" class="dropdown-item">Persconferentie</a>
             <a routerLink="/videoupdate" class="dropdown-item">Dolfijn Updates</a>
           </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" (click)="openDrugstores(drugstoresModal)">Apotheken</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="openIntCorData(internationalModal)">Internationaal</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" onclick="window.open('https://gobiernu.cw/nl')">Website Overheid</a>
@@ -109,21 +136,14 @@
             </div>
           </div>
         </li>
-        <!-- <li class="nav-item">
-          <button routerLink="/live" type="button" class="btn btn-danger">Live</button>
-        </li> -->
       </ul>
-      <div class="form-inline my-2 my-lg-0">
-        <!-- <audio controls="" src="https://corona-news.westream.cloud/coronaNews">
-          Your browser does not support the
-          <code>audio</code> element.
-        </audio> -->
-      </div>
     </div>
   </nav>
 </div>
+
 <ng-template #drugstoresModal let-modal>
   <div class="my-modal-content">
+      <div class="modal-head">Apotheken op Cura&ccedil;ao</div>
     <div class="zoneActivitiesTitle">
       Apotheken
     </div>
@@ -132,6 +152,23 @@
         <span>{{drugstore.name}}</span><br />
         <span class="item-txt">{{drugstore.address}}</span><br />
         <span class="item-txt">{{drugstore.telephone}}</span>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #internationalModal let-modal>
+  <div class="my-modal-content">
+    <div class="modal-head">Internationale Corona-gevallen</div>
+    <div class="zoneActivitiesTitle">
+      Landen
+    </div>
+    <div class="zoneActivitiesWrapper">
+      <div class="zoneActivitiesContent" *ngFor="let data of internationalData; let last = last">
+        <span style="font-weight: 600;">{{data.keyId}}</span><br />
+        <span class="item-txt">Confirmed: {{data.confirmed}}</span><br />
+        <span class="item-txt">Deaths: {{data.deaths}}</span><br />
+        <span class="item-txt">Recovered: {{data.recovered}}</span>
       </div>
     </div>
   </div>
