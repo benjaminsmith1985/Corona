@@ -28,7 +28,7 @@
   </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
-      <img src="../../../assets/img/logo.png" height="50">
+      <img src="../../../assets/img/logo.svg" height="55">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -166,9 +166,9 @@
     <div class="zoneActivitiesWrapper">
       <div class="zoneActivitiesContent" *ngFor="let data of internationalData; let last = last">
         <span style="font-weight: 600;">{{data.keyId}}</span><br />
-        <span class="item-txt">Confirmed: {{data.confirmed}}</span><br />
-        <span class="item-txt">Deaths: {{data.deaths}}</span><br />
-        <span class="item-txt">Recovered: {{data.recovered}}</span>
+        <span class="item-txt">Bevestigd: {{data.confirmed}}</span><br />
+        <span class="item-txt">Sterfgevallen: {{data.deaths}}</span><br />
+        <span class="item-txt">Hersteld: {{data.recovered}}</span>
       </div>
     </div>
   </div>
