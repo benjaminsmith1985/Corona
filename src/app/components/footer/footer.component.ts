@@ -21,45 +21,46 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
     this.getHeadline();
     this.loadMarquee();
- 
-  } 
 
-  
+  }
+
+
   getHeadline() {
     this.headlineService.getHeadline()
-      .subscribe(data => { 
-        if(data){
+      .subscribe(data => {
+        if (data) {
           this.globals.headline = data.data;
-        }        
+        }
       });
   }
 
-  pause(){
+  pause() {
     this.globals.player.pause();
   }
 
-  play(){    
+  play() {
     this.globals.player.play();
   }
 
-  stop(){
+  stop() {
     this.globals.player.stop();
   }
 
-  setAndPlay(medId){
-    if(medId){
+  setAndPlay(medId) {
+
+
+    this.globals.player.setAndPlay(this.globals.player.src);
+    if (medId) {
       this.globals.player.playerId = medId;
     }
-    
-    this.globals.player.setAndPlay(this.globals.player.src);
   }
 
   loadMarquee() {
     this.marqueeService.getMarquees()
-      .subscribe(data => { 
-        if(data){
+      .subscribe(data => {
+        if (data) {
           this.marquees = data.data;
-        }         
+        }
       });
   }
 }
