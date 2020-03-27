@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewsService } from '../../services/news.service';
 import { Globals } from '../../globals';
 import { first } from 'rxjs/operators';
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-insertnews',
@@ -11,6 +12,9 @@ import { first } from 'rxjs/operators';
 })
 export class InsertnewsComponent implements OnInit {
   insertNewsForm: FormGroup;
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+  showCropper: any = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -52,6 +56,31 @@ export class InsertnewsComponent implements OnInit {
           this.globals.newsItem = data.data;
         }
       });
+  }
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  
+  }
+
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+  
+  }
+
+  imageLoaded() {
+    // show cropper
+    this.showCropper = true;
+    console.log('show');
+  }
+
+  cropperReady() {
+  
+    // cropper ready
+  }
+  
+  loadImageFailed() {
+    // show message
   }
 
 }
