@@ -18,12 +18,12 @@
               placeholder="Enter your text here"></textarea>
           </div>
           <div style="width:352px; float: right; background-color: #fff; height: 198px;">
-              <image-cropper style="padding: 0;" [imageChangedEvent]="imageChangedEvent" [resizeToHeight]="352"
-                [cropperMinWidth]="352" [maintainAspectRatio]="true" [aspectRatio]="16 / 9" [resizeToWidth]="0" format="png"
-                (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
-                (loadImageFailed)="loadImageFailed()">
-              </image-cropper>
-            </div>
+            <image-cropper style="padding: 0;" [imageChangedEvent]="imageChangedEvent" [resizeToHeight]="352"
+              [cropperMinWidth]="352" [maintainAspectRatio]="true" [aspectRatio]="16 / 9" [resizeToWidth]="0"
+              format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+              (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
+            </image-cropper>
+          </div>
           <label for="file-upload"
             style="background-color: #aca9a9; padding: 5px 0; cursor: pointer; text-align: center; float: right;  width: 352px; ">
             Upload Image
@@ -38,7 +38,7 @@
           </div>
         </div>
         <img [src]="croppedImage" width="352" />
-        
+
 
         <!--   -->
 
@@ -50,3 +50,15 @@
     </div>
   </div>
 </div>
+
+
+<ng-template #cropImageModal let-modal>
+  <div class="my-modal-content">
+    <div class="zoneActivitiesTitle">
+      Crop Image
+    </div>
+    <div class="zoneActivitiesWrapper">
+      &nbsp;
+    </div>
+  </div>
+</ng-template>

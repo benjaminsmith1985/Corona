@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewsService } from '../../services/news.service';
 import { Globals } from '../../globals';
 import { first } from 'rxjs/operators';
 import { ImageCroppedEvent } from 'ngx-image-cropper';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-insertnews',
@@ -15,10 +16,14 @@ export class InsertnewsComponent implements OnInit {
   imageChangedEvent: any = '';
   croppedImage: any = '';
   showCropper: any = false;
+  closeResult: any;
+
+  @ViewChild('cropImageModal') cropImageModal: ElementRef;
 
   constructor(
     private formBuilder: FormBuilder,
     private newsService: NewsService,
+    private modalService: NgbModal,
     public globals: Globals
   ) { }
 
@@ -60,27 +65,45 @@ export class InsertnewsComponent implements OnInit {
 
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
-  
+
   }
 
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
-  
+
   }
 
   imageLoaded() {
     // show cropper
     this.showCropper = true;
-    console.log('show');
+    this.open(this.cropImageModal);
   }
 
   cropperReady() {
-  
+
     // cropper ready
   }
-  
+
   loadImageFailed() {
     // show message
+  }
+
+  open(content: any) {
+    this.modalService.open(content, { windowClass: 'dark-modal', ariaLabelledBy: 'modal-basic-title', centered: true }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
 }
