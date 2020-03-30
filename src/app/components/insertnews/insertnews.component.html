@@ -7,58 +7,20 @@
       <form [formGroup]="insertNewsForm" (ngSubmit)="insertNews()">
         <div class="form-group">
           <input (click)="d.toggle()" autocomplete="off" class="form-control" formControlName="date" ngbDatepicker
-            #d="ngbDatepicker" placeholder="Date (yyyy-mm-dd)">
+            #d="ngbDatepicker" id="exampleInputEmail1" placeholder="Date (yyyy-mm-dd)">
         </div>
         <div class="form-group">
-          <input class="form-control" formControlName="subject" placeholder="Subject">
+          <input class="form-control" formControlName="subject" id="exampleInputEmail1" placeholder="Subject">
         </div>
-        <div style="overflow: hidden;">
-          <div style="width:550px; float: left; height: 198px;" class="form-group">
-            <textarea style="height: 198px;" class="form-control textarea" rows="12" formControlName="text"
-              placeholder="Enter your text here"></textarea>
-          </div>
-          <div style="width:352px; float: right; background-color: #fff; height: 198px;">
-            <image-cropper style="padding: 0;" [imageChangedEvent]="imageChangedEvent" [resizeToHeight]="352"
-              [cropperMinWidth]="352" [maintainAspectRatio]="true" [aspectRatio]="16 / 9" [resizeToWidth]="0"
-              format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
-              (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
-            </image-cropper>
-          </div>
-          <label for="file-upload"
-            style="background-color: #aca9a9; padding: 5px 0; cursor: pointer; text-align: center; float: right;  width: 352px; ">
-            Upload Image
-          </label>
-          <div class="section-input-area">
-            <!-- <label for="file-upload" style="border:0;" class="custom-file-upload lime-green">
-              <i class="fa fa-cloud-upload"></i>&nbsp;Select Document
-            </label> -->
-
-            <input accept="image/x-png,image/gif,image/jpeg" id="file-upload" size="600" type="file"
-              (change)="fileChangeEvent($event)" />
-          </div>
+        <div class="form-group">
+          <textarea class="form-control textarea" rows="12" formControlName="text" id="exampleInputEmail1"
+            placeholder="Enter your text here"></textarea>
         </div>
-        <img [src]="croppedImage" width="352" />
-
-
         <!--   -->
-
-
-
+        
         <!--  -->
         <button type="submit" class="btn btn-primary">Insert News</button>
       </form>
     </div>
   </div>
 </div>
-
-
-<ng-template #cropImageModal let-modal>
-  <div class="my-modal-content">
-    <div class="zoneActivitiesTitle">
-      Crop Image
-    </div>
-    <div class="zoneActivitiesWrapper">
-      &nbsp;
-    </div>
-  </div>
-</ng-template>
