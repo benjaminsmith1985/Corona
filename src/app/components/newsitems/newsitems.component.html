@@ -1,4 +1,7 @@
 <div *ngFor="let news of globals.newsItem; let last = last" class="item-container">
+    <div *ngIf="news.path">
+        <img class="news-image" src="{{news.path}}" alt="{{news.subject}}" />
+    </div>
     <div class="item-title">
         {{news.date}}
     </div>
@@ -6,7 +9,7 @@
         {{news.subject}}
     </div>
     <div [innerHTML]="news.text" class="item-text">
-        
+
     </div>
     <button routerLink="/editnews/{{news.newsId}}" *ngIf="authenticationService && authenticationService.currentUserValue"
         type="submit" class="btn btn-info">Edit</button>

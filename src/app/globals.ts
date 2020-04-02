@@ -10,7 +10,7 @@ export class Globals {
 serverlink:string = "coronaServer/"; 
 
  newsItem: any; 
- headline: any;
+ headline: any; 
  sidebar: false;
  player: any = false;
  

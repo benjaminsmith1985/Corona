@@ -3,14 +3,17 @@ app-navbar{
 }
  
 .nav-wrap{
-    position: fixed;
-     top: 0; 
      z-index: 9;
-     background-image: linear-gradient(rgba(255,255,255,1), transparent);
-    //  background-color: rgba(0,0,0, 1);
      width: 100%;
      padding-left: 400px;
 }
+
+
+#navbar-wrapper{
+    padding-left: 400px;
+    z-index: 9;
+}
+
 
 .larger-banner{
     display: none;
@@ -135,6 +138,10 @@ li{
          padding-left: 275px;
     }
 
+    #navbar-wrapper{
+        padding-left: 275px;
+    }
+
 } 
 
 @media (max-width:1150px){
@@ -142,6 +149,10 @@ li{
        
         padding-left: 0px;
    }
+
+   #navbar-wrapper{
+        padding-left: 0px;
+    }
 
    .normal-link{
         display: none !important;

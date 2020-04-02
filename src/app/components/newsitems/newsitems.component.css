@@ -3,9 +3,21 @@
 }
 .item-container .item-title {
   font-weight: 700;
-  color: #010050;
-  font-size: 18px;
+  color: #000;
+  font-size: 17px;
+  letter-spacing: -0.5px;
+}
+.item-container .news-image {
+  width: 100%;
+}
+.item-container .item-subject {
+  font-weight: 700;
+  color: #000;
+  font-size: 16px;
+  letter-spacing: -0.5px;
 }
 .item-container .item-text {
-  color: #010050;
+  color: #000;
+  font-weight: 400;
+  letter-spacing: -0.5px;
 }

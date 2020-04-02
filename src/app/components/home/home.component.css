@@ -1,8 +1,6 @@
 .home-wrapper {
   overflow: hidden;
-  height: 100%;
-  padding-top: 130px;
-  padding-bottom: 200px;
+  padding-left: 400px;
 }
 .home-wrapper .home-left-wrapper {
   float: right;
@@ -14,11 +12,48 @@
   width: 70%;
   padding: 5% 10px;
 }
-.modal-body,
-.modal-header {
-  background-color: none;
-  border-radius: 0 !important;
-  border: 0px;
+.activities-container {
+  overflow: hidden;
+}
+.activities-container .active {
+  background-color: #008ecd !important;
+}
+.activities-container .zoneActivitiesTitle {
+  cursor: pointer;
+  float: left;
+  border: 0px solid;
+  margin-right: 10px;
+  border-radius: 3px;
+  padding: 6px;
+  text-align: center;
+  background-color: #c7c8ca;
+  font-weight: 600;
+  color: #fff;
+  width: 120px;
+  margin-bottom: 10px;
+}
+.zoneActivitiesWrapper {
+  height: 235px;
+  overflow-y: scroll;
+}
+.zoneActivitiesWrapper .zoneActivitiesContent {
+  background-color: #E0F0F8;
+  padding: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.item-txt {
+  font-size: 13px;
+  font-weight: normal;
+}
+.my-modal-content {
+  padding: 20px !important;
+}
+.modal-head {
+  text-align: center;
+  font-size: 18px;
+  padding: 0 0 10px 0;
+  font-weight: 600;
 }
 .model-content {
   border: 0;
@@ -33,6 +68,11 @@
   }
   .home-right-wrapper {
     width: 65% !important;
+  }
+}
+@media (max-width: 1650px) {
+  .home-wrapper {
+    padding-left: 275px;
   }
 }
 @media (max-width: 1500px) {
@@ -52,6 +92,9 @@
   }
 }
 @media (max-width: 1150px) {
+  .home-wrapper {
+    padding-left: 0 !important;
+  }
   .home-right-wrapper {
     width: 100% !important;
     float: none !important;
@@ -66,14 +109,19 @@
   }
 }
 .distict {
-  fill: rgba(255, 255, 255, 0.34);
+  fill: rgba(76, 78, 86, 0.25);
   stroke: solid 1px #fff;
 }
 .distictOn {
-  fill: rgba(255, 255, 255, 0.75);
+  fill: rgba(0, 142, 205, 0.5);
   cursor: pointer;
 }
 .distictOn:hover {
-  fill: #ffffff;
+  fill: rgba(0, 142, 205, 0.7);
   stroke-width: 1px;
+}
+@media (max-width: 500px) {
+  .home-right-wrapper {
+    display: none !important;
+  }
 }

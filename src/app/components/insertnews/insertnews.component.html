@@ -6,21 +6,62 @@
     <div class="content-main">
       <form [formGroup]="insertNewsForm" (ngSubmit)="insertNews()">
         <div class="form-group">
-          <input (click)="d.toggle()" autocomplete="off" class="form-control" formControlName="date" ngbDatepicker
-            #d="ngbDatepicker" id="exampleInputEmail1" placeholder="Date (yyyy-mm-dd)">
+          <input (click)="d.toggle()" autocomplete="off" class="form-control" formControlName="date" ngbDatepicker #d="ngbDatepicker"
+            placeholder="Date (yyyy-mm-dd)">
         </div>
         <div class="form-group">
-          <input class="form-control" formControlName="subject" id="exampleInputEmail1" placeholder="Subject">
+          <input class="form-control" formControlName="subject" placeholder="Subject">
         </div>
-        <div class="form-group">
-          <textarea class="form-control textarea" rows="12" formControlName="text" id="exampleInputEmail1"
-            placeholder="Enter your text here"></textarea>
+        <div>
+          <div style="height: 150px;" class="form-group">
+            <textarea style="height: 150px;" class="form-control textarea" rows="12" formControlName="text" placeholder="Enter your text here"></textarea>
+          </div>
         </div>
+        <div style="overflow: hidden;">
+          <div style="width:352px; float:right; padding:0; height: 198px;">
+            <div><img [src]="croppedImage" width="352" /></div>
+            <div *ngIf="showCropper" style="text-align: center; font-size: 14px; color:#666;">Upload Image Preview</div>
+          </div>
+          <div style="width:352px; float: left; padding:0;">
+            <div style="min-height: 198px; background-color: #fff;">
+              <image-cropper style="padding: 0;" [imageChangedEvent]="imageChangedEvent" [cropperMinWidth]="600"
+                [maintainAspectRatio]="true" [aspectRatio]="16 / 9" [resizeToWidth]="600" format="png" (imageCropped)="imageCropped($event)"
+                (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
+              </image-cropper>
+            </div>
+
+            <label for="file-upload" style="background-color: #aca9a9; padding: 5px 0; cursor: pointer; text-align: center; float: right;  width: 352px; ">
+              Add Image to News
+            </label>
+          </div>
+
+          <div class="section-input-area">
+            <input accept="image/x-png,image/gif,image/jpeg" id="file-upload" size="600" type="file" (change)="fileChangeEvent($event)" />
+          </div>
+
+        </div>
+
+
+
         <!--   -->
-        
+
+
+
         <!--  -->
         <button type="submit" class="btn btn-primary">Insert News</button>
       </form>
     </div>
   </div>
 </div>
+
+
+<ng-template #cropImageModal let-modal>
+  <div class="my-modal-content">
+    <div class="zoneActivitiesTitle">
+      Crop Image
+    </div>
+    <div class="zoneActivitiesWrapper">
+      &nbsp;
+    </div>
+  </div>
+</ng-template>

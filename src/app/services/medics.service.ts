@@ -14,9 +14,9 @@ export class MedicsService {
     private globals: Globals
   ) { }
 
-  // getAll(): any {
-  //   return this.http.post(`${this.globals.serverlink}getDrugStores.php`,{});
-  // }
+  getAll(): any {
+    return this.http.post(`${this.globals.serverlink}getMedics.php`,{});
+  }
 
   getByDistrictId(districtId: any): any {
     return this.http.post(`${this.globals.serverlink}getMedicsByDistrictId.php`, { districtId });

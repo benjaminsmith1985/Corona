@@ -31,6 +31,7 @@ export class InsertnewsComponent implements OnInit {
     this.insertNewsForm = this.formBuilder.group({
       subject: ['', Validators.required],
       date: [''],
+      base64: [''],
       text: ['', Validators.required]
     });
   }
@@ -40,6 +41,8 @@ export class InsertnewsComponent implements OnInit {
       return;
     }
 
+    this.insertNewsForm.value.base64;
+
     this.newsService.insert(this.insertNewsForm.value)
       .pipe(first())
       .subscribe(
@@ -47,6 +50,7 @@ export class InsertnewsComponent implements OnInit {
           if (data.inserted) {
             this.getNewsItems();
             this.insertNewsForm.reset();
+            this.resetImage();
           }
         },
         (error: any) => {
@@ -70,13 +74,20 @@ export class InsertnewsComponent implements OnInit {
 
   imageCropped(event: ImageCroppedEvent) {
     this.croppedImage = event.base64;
+    this.insertNewsForm.value.base64 = event.base64;
+  }
 
+  resetImage(){
+    this.croppedImage = "";
+    this.insertNewsForm.value.base64 = "";
+    this.showCropper = false;
+    this.imageChangedEvent = false;
   }
 
   imageLoaded() {
     // show cropper
     this.showCropper = true;
-    this.open(this.cropImageModal);
+    // this.open(this.cropImageModal);
   }
 
   cropperReady() {

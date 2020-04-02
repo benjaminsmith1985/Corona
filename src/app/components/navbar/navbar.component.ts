@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ChartService } from '../../services/chart.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { DrugstoreService } from '../../services/drugstore.service';
+import { MedicsService } from '../../services/medics.service';
 import { MediaplayerService } from '../../services/mediaplayer.service';
 import { Globals } from '../../globals';
 
@@ -18,6 +19,7 @@ export class NavbarComponent implements OnInit {
   drugStores: any;
   closeResult: any;
   currentRadio: any;
+  medics: any;
   mediaplayer: any;
   internationalData: any;
 
@@ -31,6 +33,7 @@ export class NavbarComponent implements OnInit {
     private modalService: NgbModal,
     private chartService: ChartService,
     private drugstoreService: DrugstoreService,
+    private medicsService: MedicsService,
     public globals: Globals
   ) {
 
@@ -45,6 +48,8 @@ export class NavbarComponent implements OnInit {
     this.globals.player.setAndPlay(src);
     this.globals.player.playerId = id;
   }
+
+  
 
   open(content: any) {
     this.modalService.open(content, { windowClass: 'dark-modal', ariaLabelledBy: 'modal-basic-title', centered: true }).result.then((result) => {
@@ -74,10 +79,22 @@ export class NavbarComponent implements OnInit {
     this.open(modal);
   }
 
+  openMedics(modal: any) {
+    this.getMedics();
+    this.open(modal);
+  }
+
   getDrugStores() {
     this.drugstoreService.getAll()
       .subscribe(data => {
         this.drugStores = data.data;
+      });
+  }
+
+  getMedics() {
+    this.medicsService.getAll()
+      .subscribe(data => {
+        this.medics = data.data;
       });
   }
 
